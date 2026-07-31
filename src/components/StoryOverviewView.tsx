@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass } from "lucide-react";
+import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass, MessageCircle } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_DUO } from "../data/characterFullBody";
 
@@ -19,31 +19,39 @@ export const StoryOverviewView: React.FC<StoryOverviewViewProps> = ({
   const storyTimeline = [
     {
       icon: Bus,
-      text: "可華在車上思考自己是否會變成和父親一樣，半夢半醒間被一陣強光吞沒。",
+      text: "車上，可華望著疲憊開車的父親，半夢半醒間想著自己是否也會變成這樣的大人。窗外忽然爆發刺眼強光，將他整個世界吞沒——「到底發生了什麼……啊！！」",
     },
     {
       icon: Zap,
-      text: "他以高中生模樣墜入光怪陸離的平行世界，短暫穿梭各種未來片段。",
+      text: "光芒中，他以高中生模樣在失重的異次元裡劇烈旋轉墜落，穿梭過飛舞考卷的金色氣旋、巨大鑰匙門縫、古色哲學長廊……",
     },
     {
       icon: Briefcase,
-      text: "醒來後卻發現自己成為中年上班族，辦公室裡，同事只催他工作、追著績效。",
+      text: "『啪！』可華重重跌落在堆滿文件的辦公桌上驚醒，抬頭卻是陌生的辦公格子間，自己也穿著皺巴巴的西裝——「這、這是哪裡？！」",
+    },
+    {
+      icon: MessageCircle,
+      text: "同事拍拍他的肩膀，丟下一疊公文袋：「又在做夢了，上班不要偷懶耶！」可華這才驚覺自己的手掌爬滿了中年人的皺紋。",
     },
     {
       icon: Monitor,
-      text: "電腦螢幕突然跳出神秘通話者，問他——「你真的想要改變？」並送來「探索，YES / NO」的選項。",
+      text: "螢幕反射出滄桑的中年臉孔，可華崩潰大喊：「我還是高中生啊！」同事只冷冷回了句：「事沒做完別想走。」轉身離去。",
     },
     {
       icon: DoorClosed,
-      text: "當可華將滑鼠移向 YES 與 NO，兩扇代表未知與輪迴的人生之門浮現在眼前。",
+      text: "頹然倒在椅子上的可華，電腦螢幕突然跳出黑色視窗——「你真的想要改變？」隨即傳來一個選項檔案：探索，YES／NO。",
+    },
+    {
+      icon: Heart,
+      text: "滑鼠移向兩端，兩扇門具現於眼前：NO 門是父親般日復一日的輪迴人生；YES 門則透出未知而恐怖的氣息，門縫中隱約有雙雙紅眼窺視。",
     },
     {
       icon: CheckCircle2,
-      text: "他最終按下 YES，故障般的世界閃動，長大後的小文從中走出，對他伸出手：「跟我來。」",
+      text: "可華顫抖著按下 YES！世界如電腦故障般爆裂閃爍，長大後的小文從門中優雅步出，微笑伸出手：「答對了。跟著我！」",
     },
     {
       icon: Building2,
-      text: "他們來到一座折疊的城市，高樓交錯、光影倒流，五扇門懸浮在時空之中，通往不同的可能與真相。可華踏上了回家的探索之旅……",
+      text: "可華握住她的手踏入門中，光芒散去，兩人置身於幾何折疊、如《全面啟動》般懸浮的巨大城市。小文轉身指向五扇古典鑰匙門：「來吧。我們必須穿過這五道關卡，才能回到真正的家。」",
     },
   ];
 
