@@ -1,0 +1,6 @@
+{
+  "name": "人生探索所：多重宇宙的抉擇",
+  "description": "生命教育互動探索遊戲，包含《媽的多重宇宙》風格平行世界穿越、可華與王小文的故事演繹、1A2B 與暗碼解密關卡、YES/NO 命運選擇門，以及 Gemini AI 無限多重宇宙章節生成。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
