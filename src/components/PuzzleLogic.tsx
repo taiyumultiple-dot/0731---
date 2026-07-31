@@ -36,7 +36,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
     <div className="space-y-6 max-w-xl mx-auto">
       {/* Evidence Clues Box */}
       <div className="p-5 rounded-3xl border border-amber-500/30 bg-slate-900/90 space-y-3 shadow-2xl">
-        <div className="flex items-center gap-2 text-xs font-serif font-bold text-amber-300">
+        <div className="flex items-center gap-2 text-base font-serif font-bold text-amber-300">
           <FileSearch className="w-4 h-4 text-amber-400" />
           <span>搜查線索與涉案人證詞分析</span>
         </div>
@@ -45,7 +45,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
           {clues.map((clue, idx) => (
             <div
               key={idx}
-              className="p-3 rounded-xl bg-slate-950/80 border border-amber-500/20 text-xs font-serif text-amber-100/90 leading-relaxed"
+              className="p-3 rounded-xl bg-slate-950/80 border border-amber-500/20 text-base font-serif text-amber-100/90 leading-relaxed"
             >
               • {clue}
             </div>
@@ -55,7 +55,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
 
       {/* Suspect Selection */}
       <div className="space-y-3">
-        <h4 className="text-xs font-serif font-bold text-amber-300/80">
+        <h4 className="text-base font-serif font-bold text-amber-300/80">
           經過邏輯推理，你認為誰是說謊的嫌疑犯？
         </h4>
 
@@ -64,7 +64,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
             <button
               key={opt.id}
               onClick={() => handleSelectOption(opt)}
-              className={`w-full p-4 rounded-2xl border text-left font-serif text-xs sm:text-sm font-bold transition-all flex items-center justify-between ${
+              className={`w-full p-4 rounded-2xl border text-left font-serif text-base sm:text-base font-bold transition-all flex items-center justify-between ${
                 selectedOptionId === opt.id
                   ? opt.isCorrect
                     ? "border-emerald-500 bg-emerald-950/60 text-emerald-200 shadow-lg shadow-emerald-950/40"
@@ -87,7 +87,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
       {/* Feedback Banner */}
       {feedback && (
         <div
-          className={`p-4 rounded-2xl border text-xs font-serif leading-relaxed animate-in fade-in duration-300 flex items-start gap-2.5 ${
+          className={`p-4 rounded-2xl border text-base font-serif leading-relaxed animate-in fade-in duration-300 flex items-start gap-2.5 ${
             feedback.isCorrect
               ? "bg-emerald-950/80 border-emerald-500/50 text-emerald-200"
               : "bg-rose-950/80 border-rose-500/50 text-rose-200"

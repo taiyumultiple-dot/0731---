@@ -103,7 +103,7 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
       <div className="relative w-full max-w-lg rounded-3xl border border-purple-500/40 bg-slate-900 shadow-2xl p-6 text-slate-100 space-y-5">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-xl text-slate-400 hover:text-slate-200"
+          className="absolute top-4 right-4 p-1.5 rounded-xl text-slate-200 hover:text-slate-200"
         >
           <X className="w-5 h-5" />
         </button>
@@ -117,7 +117,7 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
             <h3 className="text-base font-serif font-bold text-purple-100">
               Gemini AI 無限懸案生成器
             </h3>
-            <p className="text-xs text-purple-300/70">
+            <p className="text-base text-purple-300/70">
               輸入任意主題，讓 Gemini 生成獨一無二的倫敦謎案與 1A2B 破譯關卡
             </p>
           </div>
@@ -125,7 +125,7 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
 
         {/* Input & Presets */}
         <div className="space-y-3">
-          <label className="block text-xs font-serif font-bold text-amber-200">
+          <label className="block text-base font-serif font-bold text-amber-200">
             設定案件主題或情境：
           </label>
           <input
@@ -133,17 +133,17 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             placeholder="例如：開切爾西城堡幽靈案..."
-            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-purple-500/30 text-purple-100 text-xs font-serif outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
+            className="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-purple-500/30 text-purple-100 text-base font-serif outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20"
           />
 
           <div className="space-y-1.5">
-            <span className="text-[11px] text-slate-400 font-serif">快速選擇預設主題：</span>
+            <span className="text-base text-slate-200 font-serif">快速選擇預設主題：</span>
             <div className="flex flex-wrap gap-1.5">
               {presets.map((p, idx) => (
                 <button
                   key={idx}
                   onClick={() => setTheme(p)}
-                  className="px-2.5 py-1 rounded-xl text-[11px] font-serif border border-purple-500/20 bg-purple-950/40 hover:bg-purple-900/60 text-purple-200 transition-colors"
+                  className="px-2.5 py-1 rounded-xl text-base font-serif border border-purple-500/20 bg-purple-950/40 hover:bg-purple-900/60 text-purple-200 transition-colors"
                 >
                   {p}
                 </button>
@@ -153,7 +153,7 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
         </div>
 
         {errorMsg && (
-          <p className="text-xs text-rose-400 font-bold text-center">
+          <p className="text-base text-rose-400 font-bold text-center">
             ⚠️ {errorMsg}
           </p>
         )}
@@ -161,7 +161,7 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
         <button
           onClick={handleGenerateCase}
           disabled={loading || !theme.trim()}
-          className="w-full py-3.5 rounded-2xl font-serif font-bold text-xs text-purple-100 bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-600 hover:to-indigo-600 border border-purple-400/40 shadow-xl shadow-purple-950/50 transition-all flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50"
+          className="w-full py-3.5 rounded-2xl font-serif font-bold text-base text-purple-100 bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-600 hover:to-indigo-600 border border-purple-400/40 shadow-xl shadow-purple-950/50 transition-all flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50"
         >
           {loading ? (
             <>

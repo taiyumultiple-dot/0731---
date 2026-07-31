@@ -65,23 +65,23 @@ export const ShopModal: React.FC<ShopModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-amber-200"
+            className="p-1.5 rounded-xl bg-slate-800 text-slate-200 hover:text-amber-200"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Current Resources Status */}
-        <div className="flex items-center justify-around p-3.5 rounded-2xl bg-slate-950/80 border border-amber-500/20 text-xs font-serif">
+        <div className="flex items-center justify-around p-3.5 rounded-2xl bg-slate-950/80 border border-amber-500/20 text-base font-serif">
           <div className="flex items-center gap-2">
-            <span className="text-slate-400">當前精力：</span>
+            <span className="text-slate-200">當前精力：</span>
             <span className="flex items-center gap-1 text-rose-400 font-mono font-bold">
               <Zap className="w-4 h-4 fill-rose-400" /> {stamina} / {maxStamina}
             </span>
           </div>
           <div className="w-px h-4 bg-amber-500/20" />
           <div className="flex items-center gap-2">
-            <span className="text-slate-400">當前金幣：</span>
+            <span className="text-slate-200">當前金幣：</span>
             <span className="flex items-center gap-1 text-yellow-400 font-mono font-bold">
               <Coins className="w-4 h-4 fill-yellow-400" /> {coins}
             </span>
@@ -89,7 +89,7 @@ export const ShopModal: React.FC<ShopModalProps> = ({
         </div>
 
         {purchaseNotice && (
-          <div className="p-3 rounded-xl bg-amber-950/90 border border-amber-500/40 text-amber-200 text-xs font-serif text-center animate-in fade-in">
+          <div className="p-3 rounded-xl bg-amber-950/90 border border-amber-500/40 text-amber-200 text-base font-serif text-center animate-in fade-in">
             {purchaseNotice}
           </div>
         )}
@@ -106,10 +106,10 @@ export const ShopModal: React.FC<ShopModalProps> = ({
                   {item.icon}
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs sm:text-sm font-bold font-serif text-amber-100">
+                  <h3 className="text-base sm:text-base font-bold font-serif text-amber-100">
                     {item.title}
                   </h3>
-                  <p className="text-[11px] font-serif text-amber-200/70 leading-tight">
+                  <p className="text-base font-serif text-amber-200/70 leading-tight">
                     {item.desc}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export const ShopModal: React.FC<ShopModalProps> = ({
 
               <button
                 onClick={() => handlePurchase(item.coinCost, item.staminaAmount)}
-                className="px-4 py-2.5 rounded-xl font-serif font-bold text-xs text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md transition-all shrink-0 flex items-center gap-1"
+                className="px-4 py-2.5 rounded-xl font-serif font-bold text-base text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md transition-all shrink-0 flex items-center gap-1"
               >
                 <Coins className="w-3.5 h-3.5 fill-slate-950" />
                 <span>{item.coinCost}</span>

@@ -138,11 +138,11 @@ ${historyStr || "目前尚未有嘗試紀錄"}
     <div className="space-y-6 max-w-xl mx-auto">
       {/* Target Title & Prompt */}
       <div className="p-4 rounded-2xl border border-amber-500/30 bg-slate-900/90 text-center space-y-2 shadow-xl">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-serif font-bold bg-amber-950/80 text-amber-300 border border-amber-500/30">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-base font-serif font-bold bg-amber-950/80 text-amber-300 border border-amber-500/30">
           <Lock className="w-3.5 h-3.5 text-amber-400" />
           <span>{digitsCount} 位數 1A2B 密碼破譯</span>
         </div>
-        <p className="text-xs text-amber-200/80 leading-relaxed">
+        <p className="text-base text-amber-200/80 leading-relaxed">
           玩法：輸入 {digitsCount} 位不重複數字。<b>A</b> 代表數字與位置均正確，<b>B</b> 代表數字正確但位置錯誤。
         </p>
       </div>
@@ -157,7 +157,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
               className={`w-14 h-16 sm:w-16 sm:h-20 rounded-2xl border-2 flex items-center justify-center font-mono text-2xl sm:text-3xl font-bold shadow-inner transition-all ${
                 char
                   ? "border-amber-400 bg-amber-950/60 text-amber-200 shadow-amber-500/20 scale-105"
-                  : "border-amber-500/20 bg-slate-900/60 text-slate-600"
+                  : "border-amber-500/20 bg-slate-900/60 text-slate-300"
               }`}
             >
               {char || "•"}
@@ -167,7 +167,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
       </div>
 
       {errorMsg && (
-        <p className="text-center text-xs font-bold text-rose-400 animate-bounce">
+        <p className="text-center text-base font-bold text-rose-400 animate-bounce">
           ⚠️ {errorMsg}
         </p>
       )}
@@ -184,7 +184,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
                 disabled={isUsedInGuess}
                 className={`py-3 sm:py-3.5 rounded-xl font-mono text-lg font-bold border transition-all active:scale-95 ${
                   isUsedInGuess
-                    ? "opacity-30 border-slate-800 bg-slate-950 text-slate-600"
+                    ? "opacity-30 border-slate-800 bg-slate-950 text-slate-300"
                     : "border-amber-500/30 bg-gradient-to-b from-amber-950/50 to-slate-900 text-amber-100 hover:border-amber-400 hover:bg-amber-900/50 shadow-md"
                 }`}
               >
@@ -197,7 +197,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
         <div className="grid grid-cols-3 gap-2">
           <button
             onClick={handleClear}
-            className="py-3 rounded-xl font-serif text-xs font-bold border border-slate-700 bg-slate-950 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all"
+            className="py-3 rounded-xl font-serif text-base font-bold border border-slate-700 bg-slate-950 text-slate-200 hover:text-slate-200 hover:bg-slate-800 transition-all"
           >
             清除
           </button>
@@ -206,7 +206,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
             disabled={currentGuess.includes("0")}
             className={`py-3 rounded-xl font-mono text-lg font-bold border transition-all active:scale-95 ${
               currentGuess.includes("0")
-                ? "opacity-30 border-slate-800 bg-slate-950 text-slate-600"
+                ? "opacity-30 border-slate-800 bg-slate-950 text-slate-300"
                 : "border-amber-500/30 bg-gradient-to-b from-amber-950/50 to-slate-900 text-amber-100 hover:border-amber-400 hover:bg-amber-900/50 shadow-md"
             }`}
           >
@@ -214,7 +214,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
           </button>
           <button
             onClick={handleBackspace}
-            className="py-3 rounded-xl font-serif text-xs font-bold border border-slate-700 bg-slate-950 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all flex items-center justify-center gap-1"
+            className="py-3 rounded-xl font-serif text-base font-bold border border-slate-700 bg-slate-950 text-slate-200 hover:text-slate-200 hover:bg-slate-800 transition-all flex items-center justify-center gap-1"
           >
             <Delete className="w-4 h-4" />
           </button>
@@ -222,7 +222,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
 
         <button
           onClick={handleGuessSubmit}
-          className="w-full py-3.5 rounded-2xl font-serif font-bold text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 active:scale-98"
+          className="w-full py-3.5 rounded-2xl font-serif font-bold text-base text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 active:scale-98"
         >
           <Send className="w-4 h-4" />
           <span>提交試探暗碼</span>
@@ -231,9 +231,9 @@ ${historyStr || "目前尚未有嘗試紀錄"}
 
       {/* Deduction Tracker Notebook (0-9 Number Elimination Grid) */}
       <div className="p-4 rounded-2xl border border-amber-500/20 bg-slate-900/70 space-y-2">
-        <div className="flex items-center justify-between text-xs font-serif text-amber-300/80">
+        <div className="flex items-center justify-between text-base font-serif text-amber-300/80">
           <span>🔎 偵探推理草稿簿 (點擊數字可標記刪除或圈選)</span>
-          <span className="text-[10px] text-slate-400">紅劃掉 / 綠圈選</span>
+          <span className="text-base text-slate-200">紅劃掉 / 綠圈選</span>
         </div>
         <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5">
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
@@ -242,12 +242,12 @@ ${historyStr || "目前尚未有嘗試紀錄"}
               <button
                 key={num}
                 onClick={() => toggleNumberMark(num)}
-                className={`h-9 rounded-xl font-mono text-xs font-bold border transition-all flex items-center justify-center ${
+                className={`h-9 rounded-xl font-mono text-base font-bold border transition-all flex items-center justify-center ${
                   state === "crossed"
                     ? "bg-rose-950/80 border-rose-600 text-rose-400 line-through opacity-60"
                     : state === "highlight"
                     ? "bg-emerald-950/80 border-emerald-500 text-emerald-300 ring-1 ring-emerald-400"
-                    : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-600"
+                    : "bg-slate-950/60 border-slate-800 text-slate-200 hover:border-slate-600"
                 }`}
               >
                 {num}
@@ -260,14 +260,14 @@ ${historyStr || "目前尚未有嘗試紀錄"}
       {/* AI Detective Charlotte Hint */}
       <div className="p-4 rounded-2xl border border-purple-500/30 bg-purple-950/30 space-y-2">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-bold font-serif text-purple-300">
+          <div className="flex items-center gap-2 text-base font-bold font-serif text-purple-300">
             <Sparkles className="w-4 h-4 text-purple-400" />
             <span>夏洛特助手線索指引</span>
           </div>
           <button
             onClick={fetchAIHint}
             disabled={loadingHint}
-            className="px-3 py-1 rounded-xl text-xs font-serif font-bold text-purple-200 bg-purple-900/60 hover:bg-purple-800/80 border border-purple-400/30 transition-all flex items-center gap-1"
+            className="px-3 py-1 rounded-xl text-base font-serif font-bold text-purple-200 bg-purple-900/60 hover:bg-purple-800/80 border border-purple-400/30 transition-all flex items-center gap-1"
           >
             {loadingHint ? (
               <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -279,7 +279,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
         </div>
 
         {aiHint && (
-          <p className="text-xs font-serif text-purple-100/90 leading-relaxed p-3 rounded-xl bg-purple-950/60 border border-purple-500/20 animate-in fade-in duration-300">
+          <p className="text-base font-serif text-purple-100/90 leading-relaxed p-3 rounded-xl bg-purple-950/60 border border-purple-500/20 animate-in fade-in duration-300">
             {aiHint}
           </p>
         )}
@@ -288,18 +288,18 @@ ${historyStr || "目前尚未有嘗試紀錄"}
       {/* Attempt History Feed */}
       {attempts.length > 0 && (
         <div className="space-y-2">
-          <h4 className="text-xs font-serif font-bold text-amber-300/80">
+          <h4 className="text-base font-serif font-bold text-amber-300/80">
             歷史試探紀錄 ({attempts.length} 次)
           </h4>
           <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1 custom-scrollbar">
             {attempts.map((att, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-between p-3 rounded-xl border border-amber-500/20 bg-slate-900/80 font-mono text-xs text-amber-100"
+                className="flex items-center justify-between p-3 rounded-xl border border-amber-500/20 bg-slate-900/80 font-mono text-base text-amber-100"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] text-slate-500">#{attempts.length - idx}</span>
-                  <span className="text-sm font-bold tracking-widest text-amber-200">{att.guess}</span>
+                  <span className="text-base text-slate-300">#{attempts.length - idx}</span>
+                  <span className="text-base font-bold tracking-widest text-amber-200">{att.guess}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="px-2 py-0.5 rounded-lg bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 font-bold">

@@ -33,7 +33,7 @@ export const PuzzleView: React.FC<PuzzleViewProps> = ({
 
       {/* Case Header Card */}
       <div className="p-6 rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl space-y-3">
-        <div className="flex items-center justify-between text-xs font-serif">
+        <div className="flex items-center justify-between text-base font-serif">
           <span className="px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-500/30">
             {level.subtitle}
           </span>
@@ -46,14 +46,14 @@ export const PuzzleView: React.FC<PuzzleViewProps> = ({
           {level.title}
         </h2>
 
-        <p className="text-xs sm:text-sm font-serif text-amber-200/90 leading-relaxed p-3.5 rounded-2xl bg-slate-950/80 border border-amber-500/20">
+        <p className="text-base sm:text-base font-serif text-amber-200/90 leading-relaxed p-3.5 rounded-2xl bg-slate-950/80 border border-amber-500/20">
           {level.narrative}
         </p>
 
         {level.openingDialogue && level.openingDialogue.length > 0 && (
           <button
             onClick={() => setShowDialogue(true)}
-            className="text-xs font-serif text-purple-300 hover:text-purple-200 flex items-center gap-1 underline"
+            className="text-base font-serif text-purple-300 hover:text-purple-200 flex items-center gap-1 underline"
           >
             <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
             <span>重播對話紀錄</span>

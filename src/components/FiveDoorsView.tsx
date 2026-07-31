@@ -50,13 +50,13 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-200 text-xs font-mono">
+          <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-200 text-base font-mono">
             <Heart className="w-3.5 h-3.5 text-purple-400 fill-purple-400" />
             <span>心力</span>
             <span className="font-bold text-purple-100">{stamina}</span>
           </div>
 
-          <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-200 text-xs font-mono">
+          <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-200 text-base font-mono">
             <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
             <span>星點</span>
             <span className="font-bold text-amber-300">{coins}</span>
@@ -65,18 +65,18 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
       </div>
 
       {/* Subtitle */}
-      <div className="p-2 rounded-xl bg-purple-950/60 border border-purple-500/30 text-xs font-serif font-bold text-purple-200 text-center flex items-center justify-center gap-1.5">
+      <div className="p-2 rounded-xl bg-purple-950/60 border border-purple-500/30 text-base font-serif font-bold text-purple-200 text-center flex items-center justify-center gap-1.5">
         <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
         <span>✦ 下一步：跟隨小文，穿過五扇門。✦</span>
       </div>
 
       {/* Main Inception City Artwork Stage with 5 Doors (Matching Image 5) */}
-      <div className="relative w-full h-[380px] sm:h-[420px] rounded-3xl overflow-hidden border-2 border-indigo-500/40 shadow-2xl bg-slate-950 group">
+      <div className="relative w-full h-[460px] sm:h-[520px] rounded-3xl overflow-hidden border-2 border-indigo-500/40 shadow-2xl bg-slate-950 group">
         {/* Background Image: Inception folded skyscrapers */}
         <img
           src={IMG_FIVEDOORS}
           alt="折疊城市五扇門"
-          className="w-full h-full object-cover object-center opacity-75 filter contrast-125 saturate-110"
+          className="w-full h-full object-contain object-center opacity-90 filter contrast-125 saturate-110"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-purple-950/40" />
@@ -101,12 +101,12 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
                 }`}
               >
                 {/* Door Frame Crown Badge */}
-                <div className="text-[10px] font-mono font-bold tracking-wider opacity-90 border-b border-white/20 pb-1 w-full flex items-center justify-center gap-1">
+                <div className="text-base font-mono font-bold tracking-wider opacity-90 border-b border-white/20 pb-1 w-full flex items-center justify-center gap-1">
                   <span>關卡 0{level.id}</span>
                   {isCompleted && (
                     <CheckCircle className="w-3 h-3 text-emerald-400" />
                   )}
-                  {!isUnlocked && <Lock className="w-3 h-3 text-slate-400" />}
+                  {!isUnlocked && <Lock className="w-3 h-3 text-slate-200" />}
                 </div>
 
                 {/* Door Center Icon / Emblem */}
@@ -114,13 +114,13 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
                   <div className="w-10 h-10 rounded-full bg-slate-950/70 border border-white/30 flex items-center justify-center mx-auto shadow-inner group-hover/door:scale-110 transition-transform">
                     <DoorClosed className="w-5 h-5 text-amber-200" />
                   </div>
-                  <div className="text-[11px] font-bold font-serif leading-tight px-1 drop-shadow-md">
+                  <div className="text-base font-bold font-serif leading-tight px-1 drop-shadow-md">
                     {level.title}
                   </div>
                 </div>
 
                 {/* Bottom Cost */}
-                <div className="text-[9px] font-serif font-bold bg-slate-950/80 px-2 py-0.5 rounded-full border border-white/20 text-purple-200">
+                <div className="text-base font-serif font-bold bg-slate-950/80 px-2 py-0.5 rounded-full border border-white/20 text-purple-200">
                   {level.staminaCost} 心力
                 </div>
               </button>
@@ -140,11 +140,11 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
             </div>
 
             <div className="space-y-0.5">
-              <div className="text-xs font-bold font-serif text-purple-300 flex items-center gap-1.5">
+              <div className="text-base font-bold font-serif text-purple-300 flex items-center gap-1.5">
                 <span>小文</span>
-                <span className="text-[10px] font-mono text-purple-400">~||~</span>
+                <span className="text-base font-mono text-purple-400">~||~</span>
               </div>
-              <p className="text-xs font-serif text-purple-100 font-medium">
+              <p className="text-base font-serif text-purple-100 font-medium">
                 來吧。我們得穿過這五扇門，才能回家。
               </p>
             </div>

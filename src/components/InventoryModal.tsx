@@ -44,27 +44,27 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
               <h3 className="text-base font-serif font-bold text-amber-100">
                 人物圖鑑與時空線索
               </h3>
-              <p className="text-xs text-purple-200/70">
+              <p className="text-base text-purple-200/70">
                 多重宇宙的人物關係與探索到的關鍵線索
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-200"
+            className="p-1.5 rounded-xl text-slate-200 hover:text-slate-200"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Sub Tabs */}
-        <div className="flex rounded-2xl bg-slate-950/80 p-1 border border-purple-500/20 text-xs font-serif font-bold">
+        <div className="flex rounded-2xl bg-slate-950/80 p-1 border border-purple-500/20 text-base font-serif font-bold">
           <button
             onClick={() => setActiveSubTab("characters")}
             className={`flex-1 py-2 rounded-xl transition-all ${
               activeSubTab === "characters"
                 ? "bg-purple-900/80 text-purple-200 border border-purple-400/30 shadow-md"
-                : "text-slate-400 hover:text-purple-200"
+                : "text-slate-200 hover:text-purple-200"
             }`}
           >
             登場人物
@@ -74,7 +74,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
             className={`flex-1 py-2 rounded-xl transition-all ${
               activeSubTab === "items"
                 ? "bg-purple-900/80 text-purple-200 border border-purple-400/30 shadow-md"
-                : "text-slate-400 hover:text-purple-200"
+                : "text-slate-200 hover:text-purple-200"
             }`}
           >
             時空線索 ({unlockedClues.length})
@@ -96,14 +96,14 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                 />
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-sm font-serif text-purple-200">
+                    <span className="font-bold text-base font-serif text-purple-200">
                       {c.name}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30">
+                    <span className="text-base font-mono px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30">
                       {c.role}
                     </span>
                   </div>
-                  <p className="text-[11px] font-serif text-slate-300/80 leading-relaxed">
+                  <p className="text-base font-serif text-slate-300/80 leading-relaxed">
                     {c.desc}
                   </p>
                 </div>
@@ -113,22 +113,22 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
         ) : (
           <div className="space-y-2 max-h-72 overflow-y-auto pr-1 custom-scrollbar">
             {unlockedClues.length === 0 ? (
-              <div className="py-8 text-center space-y-2 text-slate-500">
-                <p className="text-xs font-serif">尚無獲得的時空線索。</p>
-                <p className="text-[11px]">完成篇章關卡即可解鎖平行宇宙關鍵線索！</p>
+              <div className="py-8 text-center space-y-2 text-slate-300">
+                <p className="text-base font-serif">尚無獲得的時空線索。</p>
+                <p className="text-base">完成篇章關卡即可解鎖平行宇宙關鍵線索！</p>
               </div>
             ) : (
               unlockedClues.map((clue, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-2xl border border-purple-500/20 bg-slate-950/80 flex items-center gap-3 text-xs font-serif text-amber-100"
+                  className="p-3.5 rounded-2xl border border-purple-500/20 bg-slate-950/80 flex items-center gap-3 text-base font-serif text-amber-100"
                 >
                   <div className="p-2 rounded-xl bg-purple-950 text-purple-300 border border-purple-500/30">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="font-bold text-purple-200">{clue}</div>
-                    <span className="text-[10px] text-slate-400">已歸檔於時空圖鑑</span>
+                    <span className="text-base text-slate-200">已歸檔於時空圖鑑</span>
                   </div>
                 </div>
               ))

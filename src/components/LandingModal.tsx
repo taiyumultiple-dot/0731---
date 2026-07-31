@@ -29,13 +29,13 @@ export const LandingModal: React.FC<LandingModalProps> = ({ onStartGame }) => {
 
         {/* Title */}
         <div className="space-y-1 relative z-10">
-          <div className="text-[11px] font-mono tracking-[0.3em] font-bold text-purple-400 uppercase">
+          <div className="text-base font-mono tracking-[0.3em] font-bold text-purple-400 uppercase">
             LIFE EXPLORATION STATION
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold font-serif bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent tracking-wider drop-shadow-md">
             人生探索所
           </h1>
-          <p className="text-xs font-serif text-purple-200/70 pt-1">
+          <p className="text-base font-serif text-purple-200/70 pt-1">
             生命教育互動探索 · 多重宇宙的抉擇
           </p>
         </div>
@@ -50,22 +50,22 @@ export const LandingModal: React.FC<LandingModalProps> = ({ onStartGame }) => {
             <span>開啟多重宇宙探索</span>
           </button>
 
-          <p className="text-[11px] font-serif text-slate-400 px-4 leading-relaxed">
+          <p className="text-base font-serif text-slate-200 px-4 leading-relaxed">
             未登入時進度保存在此裝置；登入 Google 帳號可開啟跨裝置雲端同步。
           </p>
 
           {!googleUser ? (
             <button
               onClick={handleGoogleLogin}
-              className="w-full py-3 px-5 rounded-2xl font-serif text-xs font-bold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 transition-all flex items-center justify-center gap-2"
+              className="w-full py-3 px-5 rounded-2xl font-serif text-base font-bold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 transition-all flex items-center justify-center gap-2"
             >
-              <div className="w-4 h-4 rounded-full bg-white text-slate-900 font-bold flex items-center justify-center text-[10px]">
+              <div className="w-4 h-4 rounded-full bg-white text-slate-900 font-bold flex items-center justify-center text-base">
                 G
               </div>
               <span>以 Google 帳號遊玩</span>
             </button>
           ) : (
-            <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-serif font-bold">
+            <div className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-base font-serif font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>已連結 {googleUser}</span>
             </div>
@@ -73,7 +73,7 @@ export const LandingModal: React.FC<LandingModalProps> = ({ onStartGame }) => {
         </div>
 
         {syncMsg && (
-          <div className="p-3 rounded-xl bg-purple-950/80 border border-purple-500/40 text-purple-200 text-xs font-serif animate-in fade-in duration-300 flex items-center justify-center gap-2">
+          <div className="p-3 rounded-xl bg-purple-950/80 border border-purple-500/40 text-purple-200 text-base font-serif animate-in fade-in duration-300 flex items-center justify-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
             <span>{syncMsg}</span>
           </div>

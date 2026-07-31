@@ -57,7 +57,7 @@ export const HubView: React.FC<HubViewProps> = ({
   return (
     <div className="space-y-6 max-w-2xl mx-auto pb-24 relative z-10">
       {/* Quick Access Screen Switcher Pills */}
-      <div className="flex items-center justify-center gap-2 overflow-x-auto pb-1 text-xs font-serif font-bold text-purple-200 custom-scrollbar">
+      <div className="flex items-center justify-center gap-2 overflow-x-auto pb-1 text-base font-serif font-bold text-purple-200 custom-scrollbar">
         <button
           onClick={onNavigateToStoryTeaser}
           className="px-3 py-1.5 rounded-full bg-slate-900/90 border border-purple-500/30 hover:border-purple-400 hover:text-amber-200 shrink-0 transition-all shadow-sm"
@@ -98,7 +98,7 @@ export const HubView: React.FC<HubViewProps> = ({
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
           <div className="space-y-3 flex-1 text-left">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider text-purple-300 bg-purple-950/80 border border-purple-500/40 shadow-sm">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-base font-mono font-bold tracking-wider text-purple-300 bg-purple-950/80 border border-purple-500/40 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
               <span>來自未來的引導</span>
             </div>
@@ -109,7 +109,7 @@ export const HubView: React.FC<HubViewProps> = ({
             </h2>
 
             {/* Quote */}
-            <p className="text-xs sm:text-sm font-serif text-slate-300/90 leading-relaxed font-medium">
+            <p className="text-base sm:text-base font-serif text-slate-300/90 leading-relaxed font-medium">
               「想逃出去的話，跟我走。有問題，後面再說。」
             </p>
 
@@ -117,7 +117,7 @@ export const HubView: React.FC<HubViewProps> = ({
             <div className="pt-2">
               <button
                 onClick={onNavigateToChapterIntro}
-                className="px-5 py-2.5 rounded-2xl font-serif font-bold text-xs text-purple-100 bg-gradient-to-r from-purple-800 via-indigo-800 to-purple-900 hover:from-purple-700 hover:to-indigo-700 border border-purple-400/40 shadow-xl shadow-purple-900/50 transition-all flex items-center gap-1.5 group active:scale-98"
+                className="px-5 py-2.5 rounded-2xl font-serif font-bold text-base text-purple-100 bg-gradient-to-r from-purple-800 via-indigo-800 to-purple-900 hover:from-purple-700 hover:to-indigo-700 border border-purple-400/40 shadow-xl shadow-purple-900/50 transition-all flex items-center gap-1.5 group active:scale-98"
               >
                 <span>查看篇章</span>
                 <ChevronRight className="w-4 h-4 text-purple-300 group-hover:translate-x-1 transition-transform" />
@@ -136,7 +136,7 @@ export const HubView: React.FC<HubViewProps> = ({
               className="w-full h-full object-cover object-top opacity-90 group-hover:scale-105 transition-transform duration-500 filter contrast-110 saturate-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
-            <div className="absolute bottom-2 left-2 right-2 text-center text-[10px] font-serif font-bold text-purple-200 bg-slate-950/85 py-1 rounded-lg border border-purple-500/30 backdrop-blur-sm">
+            <div className="absolute bottom-2 left-2 right-2 text-center text-base font-serif font-bold text-purple-200 bg-slate-950/85 py-1 rounded-lg border border-purple-500/30 backdrop-blur-sm">
               神秘女子 · 王小文
             </div>
           </div>
@@ -151,13 +151,13 @@ export const HubView: React.FC<HubViewProps> = ({
             第0篇：多重宇宙的抉擇
           </h2>
 
-          <div className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 shadow-inner">
+          <div className="px-3 py-1 rounded-full text-base font-mono font-bold bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 shadow-inner">
             進度：{completedCount} / 5
           </div>
         </div>
 
         {/* Subtitle */}
-        <p className="text-xs sm:text-sm font-serif text-slate-300/80 italic font-medium">
+        <p className="text-base sm:text-base font-serif text-slate-300/80 italic font-medium">
           在迷惘與輪迴之間，找到屬於自己的選擇。
         </p>
 
@@ -169,10 +169,10 @@ export const HubView: React.FC<HubViewProps> = ({
               <Sparkles className="w-4 h-4 text-purple-300" />
             </div>
             <div className="space-y-0.5 text-left">
-              <div className="text-xs font-bold font-serif text-purple-200">
+              <div className="text-base font-bold font-serif text-purple-200">
                 核心主題 ｜ 選擇與改變
               </div>
-              <div className="text-[11px] font-serif text-slate-400 leading-snug">
+              <div className="text-base font-serif text-slate-200 leading-snug">
                 每一個選擇，正在重塑你的未來與可能。
               </div>
             </div>
@@ -184,10 +184,10 @@ export const HubView: React.FC<HubViewProps> = ({
               <DoorClosed className="w-4 h-4 text-indigo-300" />
             </div>
             <div className="space-y-0.5 text-left">
-              <div className="text-xs font-bold font-serif text-indigo-200">
+              <div className="text-base font-bold font-serif text-indigo-200">
                 場景線索 ｜ 辦公室／平行世界／五扇門
               </div>
-              <div className="text-[11px] font-serif text-slate-400 leading-snug">
+              <div className="text-base font-serif text-slate-200 leading-snug">
                 現實與幻想交錯，找出通往真相的線索。
               </div>
             </div>
@@ -199,10 +199,10 @@ export const HubView: React.FC<HubViewProps> = ({
               <User className="w-4 h-4 text-purple-300" />
             </div>
             <div className="space-y-0.5 text-left">
-              <div className="text-xs font-bold font-serif text-purple-200">
+              <div className="text-base font-bold font-serif text-purple-200">
                 探索目標 ｜ 回到真正的自己
               </div>
-              <div className="text-[11px] font-serif text-slate-400 leading-snug">
+              <div className="text-base font-serif text-slate-200 leading-snug">
                 穿越無數可能性，找回迷失的初心。
               </div>
             </div>
@@ -213,7 +213,7 @@ export const HubView: React.FC<HubViewProps> = ({
         <div className="pt-2 space-y-3">
           <button
             onClick={onNavigateToFiveDoors}
-            className="w-full py-4 px-6 rounded-2xl font-serif font-bold text-sm text-amber-100 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 hover:from-indigo-800 hover:to-purple-800 border-2 border-indigo-500/40 shadow-xl shadow-indigo-950/60 transition-all flex items-center justify-center gap-2 group active:scale-98"
+            className="w-full py-4 px-6 rounded-2xl font-serif font-bold text-base text-amber-100 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 hover:from-indigo-800 hover:to-purple-800 border-2 border-indigo-500/40 shadow-xl shadow-indigo-950/60 transition-all flex items-center justify-center gap-2 group active:scale-98"
           >
             <span>進入篇章</span>
             <ChevronRight className="w-4 h-4 text-amber-300 group-hover:translate-x-1 transition-transform" />
@@ -222,7 +222,7 @@ export const HubView: React.FC<HubViewProps> = ({
           {/* Secondary Story Brief Link */}
           <button
             onClick={onNavigateToStoryOverview}
-            className="w-full text-center text-xs font-serif text-indigo-300 hover:text-indigo-200 flex items-center justify-center gap-1 transition-colors py-1"
+            className="w-full text-center text-base font-serif text-indigo-300 hover:text-indigo-200 flex items-center justify-center gap-1 transition-colors py-1"
           >
             <span>查看故事簡介</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -233,26 +233,26 @@ export const HubView: React.FC<HubViewProps> = ({
       {/* YES / NO Choice Door Preview Card (Matching Screenshot 1 & 3) */}
       <div className="p-5 rounded-3xl border border-purple-500/30 bg-slate-900/80 shadow-xl space-y-3 text-left">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-serif font-bold text-purple-300">
+          <div className="flex items-center gap-2 text-base font-serif font-bold text-purple-300">
             <Compass className="w-4 h-4 text-purple-400" />
             <span>命運的選擇之門（YES / NO）</span>
           </div>
 
           <button
             onClick={onNavigateToChoiceMoment}
-            className="text-[11px] font-serif text-amber-300 hover:underline flex items-center gap-0.5 font-bold"
+            className="text-base font-serif text-amber-300 hover:underline flex items-center gap-0.5 font-bold"
           >
             開啟抉擇時刻 <ChevronRight className="w-3 h-3" />
           </button>
         </div>
 
-        <p className="text-xs font-serif text-slate-300/80 leading-relaxed">
+        <p className="text-base font-serif text-slate-300/80 leading-relaxed">
           電腦螢幕跳出視窗：「你真的想要改變？」——滑鼠移至 YES 門，通往神秘冒險；移至 NO 門，則是如父親般的輪迴人生。
         </p>
 
         <button
           onClick={onNavigateToChoiceMoment}
-          className="w-full py-2.5 rounded-2xl border border-purple-500/40 bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 text-xs font-bold font-serif flex items-center justify-center gap-2 transition-all shadow-md"
+          className="w-full py-2.5 rounded-2xl border border-purple-500/40 bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 text-base font-bold font-serif flex items-center justify-center gap-2 transition-all shadow-md"
         >
           <Radio className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
           <span>進入辦公桌抉擇 (Image 1 畫面)</span>

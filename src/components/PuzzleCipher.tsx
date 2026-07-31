@@ -46,19 +46,19 @@ export const PuzzleCipher: React.FC<PuzzleCipherProps> = ({ config, onSuccess })
     <div className="space-y-6 max-w-xl mx-auto">
       {/* Cipher Card */}
       <div className="p-5 rounded-3xl border border-amber-500/30 bg-slate-900/90 text-center space-y-3 shadow-2xl">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-serif font-bold bg-amber-950/80 text-amber-300 border border-amber-500/30">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-base font-serif font-bold bg-amber-950/80 text-amber-300 border border-amber-500/30">
           <KeyRound className="w-3.5 h-3.5 text-amber-400" />
           <span>凱撒位移密碼解密</span>
         </div>
 
-        <p className="text-xs text-amber-200/80">截獲的灰印會密函字母如下：</p>
+        <p className="text-base text-amber-200/80">截獲的灰印會密函字母如下：</p>
 
         <div className="p-4 rounded-2xl bg-slate-950 border border-amber-500/40 font-mono text-xl sm:text-2xl font-bold tracking-widest text-amber-300 shadow-inner">
           {encryptedText}
         </div>
 
         {config.cipherHint && (
-          <p className="text-xs text-purple-300/90 italic p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/20">
+          <p className="text-base text-purple-300/90 italic p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/20">
             💡 {config.cipherHint}
           </p>
         )}
@@ -66,9 +66,9 @@ export const PuzzleCipher: React.FC<PuzzleCipherProps> = ({ config, onSuccess })
 
       {/* Caesar Wheel / Shift Slider */}
       <div className="p-5 rounded-3xl border border-amber-500/20 bg-slate-900/80 space-y-4">
-        <div className="flex items-center justify-between text-xs font-serif text-amber-200">
+        <div className="flex items-center justify-between text-base font-serif text-amber-200">
           <span>位移滾輪調整 (Shift): <b className="text-amber-400 font-mono text-base">{shift}</b></span>
-          <span className="text-[11px] text-slate-400">目前預覽: <b className="font-mono text-amber-300">{previewText}</b></span>
+          <span className="text-base text-slate-200">目前預覽: <b className="font-mono text-amber-300">{previewText}</b></span>
         </div>
 
         <input
@@ -81,7 +81,7 @@ export const PuzzleCipher: React.FC<PuzzleCipherProps> = ({ config, onSuccess })
         />
 
         <div className="space-y-2 pt-2">
-          <label className="block text-xs font-serif font-bold text-amber-200">
+          <label className="block text-base font-serif font-bold text-amber-200">
             輸入解密後的英文單字：
           </label>
           <input
@@ -94,14 +94,14 @@ export const PuzzleCipher: React.FC<PuzzleCipherProps> = ({ config, onSuccess })
         </div>
 
         {errorMsg && (
-          <p className="text-xs font-bold text-rose-400 text-center animate-bounce">
+          <p className="text-base font-bold text-rose-400 text-center animate-bounce">
             ⚠️ {errorMsg}
           </p>
         )}
 
         <button
           onClick={handleSubmit}
-          className="w-full py-3.5 rounded-2xl font-serif font-bold text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 rounded-2xl font-serif font-bold text-base text-slate-950 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2"
         >
           <Check className="w-4 h-4" />
           <span>驗證解密答案</span>

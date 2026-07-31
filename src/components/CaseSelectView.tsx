@@ -19,13 +19,13 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
     <div className="space-y-6 max-w-4xl mx-auto py-2">
       {/* Volume Header */}
       <div className="p-6 rounded-3xl border border-amber-500/30 bg-slate-900/90 space-y-2 shadow-2xl">
-        <div className="inline-block px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/30">
+        <div className="inline-block px-3 py-1 rounded-full text-base font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/30">
           {volume.subtitle}
         </div>
         <h2 className="text-xl sm:text-2xl font-bold font-serif text-amber-100">
           {volume.title}
         </h2>
-        <p className="text-xs font-serif text-amber-200/80 leading-relaxed">
+        <p className="text-base font-serif text-amber-200/80 leading-relaxed">
           {volume.summary}
         </p>
       </div>
@@ -34,7 +34,7 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
       <div className="space-y-6">
         {volume.chapters.map((chapter) => (
           <div key={chapter.id} className="space-y-3">
-            <h3 className="text-sm font-serif font-bold text-amber-300 border-l-2 border-amber-500 pl-3">
+            <h3 className="text-base font-serif font-bold text-amber-300 border-l-2 border-amber-500 pl-3">
               {chapter.title}：{chapter.subtitle}
             </h3>
 
@@ -63,34 +63,34 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <div className="flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-lg bg-amber-950 text-amber-300 font-mono text-xs font-bold border border-amber-500/30 flex items-center justify-center">
+                        <span className="w-6 h-6 rounded-lg bg-amber-950 text-amber-300 font-mono text-base font-bold border border-amber-500/30 flex items-center justify-center">
                           {idx + 1}
                         </span>
-                        <h4 className="text-sm font-bold font-serif text-amber-100">
+                        <h4 className="text-base font-bold font-serif text-amber-100">
                           {level.title}
                         </h4>
                       </div>
 
                       {isCompleted ? (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-serif font-bold bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                        <span className="px-2 py-0.5 rounded-full text-base font-serif font-bold bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" /> 已破解
                         </span>
                       ) : isUnlocked ? (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-serif font-bold bg-amber-950 text-amber-300 border border-amber-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-base font-serif font-bold bg-amber-950 text-amber-300 border border-amber-500/30">
                           調查中
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-serif bg-slate-900 text-slate-500 flex items-center gap-1 border border-slate-800">
+                        <span className="px-2 py-0.5 rounded-full text-base font-serif bg-slate-900 text-slate-300 flex items-center gap-1 border border-slate-800">
                           <Lock className="w-3 h-3" /> 未解鎖
                         </span>
                       )}
                     </div>
 
-                    <p className="text-xs font-serif text-amber-200/70 line-clamp-2 leading-relaxed mb-3">
+                    <p className="text-base font-serif text-amber-200/70 line-clamp-2 leading-relaxed mb-3">
                       {level.narrative}
                     </p>
 
-                    <div className="flex items-center justify-between text-[11px] font-serif pt-2 border-t border-amber-500/20 text-amber-300/80">
+                    <div className="flex items-center justify-between text-base font-serif pt-2 border-t border-amber-500/20 text-amber-300/80">
                       <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1 text-rose-400 font-mono">
                           <Zap className="w-3 h-3" /> -{level.staminaCost} 體力

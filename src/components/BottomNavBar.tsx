@@ -42,17 +42,17 @@ export const BottomNavBar: React.FC<BottomNavBarProps> = ({
                 className={`relative z-10 p-1.5 rounded-2xl transition-all ${
                   isActive
                     ? "text-purple-300 scale-110 bg-purple-950/80 border border-purple-500/30"
-                    : "text-slate-400 group-hover:text-purple-200/80"
+                    : "text-slate-200 group-hover:text-purple-200/80"
                 }`}
               >
                 <Icon className="w-5 h-5" />
               </div>
 
               <span
-                className={`text-[11px] font-serif transition-colors mt-0.5 ${
+                className={`text-base font-serif transition-colors mt-0.5 ${
                   isActive
                     ? "text-purple-200 font-bold"
-                    : "text-slate-400 group-hover:text-purple-200/70"
+                    : "text-slate-200 group-hover:text-purple-200/70"
                 }`}
               >
                 {tab.label}

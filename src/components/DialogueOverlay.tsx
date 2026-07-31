@@ -77,7 +77,7 @@ export const DialogueOverlay: React.FC<DialogueOverlayProps> = ({
         {/* Speaker Name Tag */}
         <div className="flex items-center gap-2">
           <div
-            className={`px-4 py-1.5 rounded-xl border text-sm font-bold font-serif shadow-lg ${getSpeakerColor(
+            className={`px-4 py-1.5 rounded-xl border text-base font-bold font-serif shadow-lg ${getSpeakerColor(
               currentDialogue.speaker
             )}`}
           >
@@ -87,11 +87,11 @@ export const DialogueOverlay: React.FC<DialogueOverlayProps> = ({
 
         {/* Dialogue Quote Box */}
         <div className="relative p-6 rounded-3xl border border-purple-500/30 bg-slate-900/95 backdrop-blur-xl shadow-2xl text-slate-100 space-y-4">
-          <p className="text-sm sm:text-base font-serif leading-relaxed text-purple-100 tracking-wide font-medium">
+          <p className="text-base sm:text-base font-serif leading-relaxed text-purple-100 tracking-wide font-medium">
             {currentDialogue.text}
           </p>
 
-          <div className="flex items-center justify-between pt-2 text-[11px] text-purple-400/80 font-mono">
+          <div className="flex items-center justify-between pt-2 text-base text-purple-400/80 font-mono">
             <span className="flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-purple-400" />
               劇情演繹 ({currentIndex + 1}/{dialogues.length})
