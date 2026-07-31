@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LevelData } from "../types";
 import { ChevronDown, ChevronUp, Heart, ChevronRight, BookOpen, Sparkles, DoorClosed } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
-import { IMG_CHAPTERINTRO } from "../data/gameBanners";
+import { IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 
 interface CaseBriefModalProps {
   level: LevelData;
@@ -38,7 +38,7 @@ export const CaseBriefModal: React.FC<CaseBriefModalProps> = ({
         <div className="p-4 rounded-2xl bg-slate-950/80 border border-purple-500/20 flex items-start gap-4">
           <div className="w-16 h-20 rounded-xl border border-purple-500/30 overflow-hidden shrink-0 bg-slate-900">
             <img
-              src={IMG_CHAPTERINTRO}
+              src={IMG_WENWEN_PORTRAIT}
               alt="王小文"
               className="w-full h-full object-cover object-top filter contrast-110"
             />

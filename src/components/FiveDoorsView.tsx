@@ -4,7 +4,8 @@ import { STORY_VOLUMES } from "../data/storyData";
 import { LevelData } from "../types";
 import { soundFx } from "../utils/audio";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
-import { IMG_FIVEDOORS, IMG_CHAPTERINTRO } from "../data/gameBanners";
+import { IMG_FIVEDOORS } from "../data/gameBanners";
+import { IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 
 interface FiveDoorsViewProps {
   completedLevelIds: number[];
@@ -132,7 +133,7 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl border border-purple-500/40 overflow-hidden shrink-0 bg-slate-900">
               <img
-                src={IMG_CHAPTERINTRO}
+                src={IMG_WENWEN_PORTRAIT}
                 alt="小文"
                 className="w-full h-full object-cover object-top opacity-90 filter contrast-125"
               />

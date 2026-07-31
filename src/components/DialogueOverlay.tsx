@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DialogueNode } from "../types";
 import { ChevronDown, Sparkles } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
-import { IMG_CHOICE, IMG_CHAPTERINTRO } from "../data/gameBanners";
+import { IMG_KEHUA_PORTRAIT, IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 
 interface DialogueOverlayProps {
   dialogues: DialogueNode[];
@@ -44,11 +44,10 @@ export const DialogueOverlay: React.FC<DialogueOverlayProps> = ({
   const getCharacterImage = (portrait: string) => {
     switch (portrait) {
       case "charlotte": // 成年王小文
-        return IMG_CHAPTERINTRO;
       case "client": // 高中時期的王小文
-        return IMG_CHAPTERINTRO;
+        return IMG_WENWEN_PORTRAIT;
       case "detective": // 可華
-        return IMG_CHOICE;
+        return IMG_KEHUA_PORTRAIT;
       case "doctor": // 同事
         return CHARACTER_IMAGES.COLLEAGUE;
       case "suspect": // 神秘通話者（電腦螢幕視窗）
