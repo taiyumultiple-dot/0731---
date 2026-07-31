@@ -27,7 +27,7 @@ export const ChoiceMomentView: React.FC<ChoiceMomentViewProps> = ({
   const [voicePlaying, setVoicePlaying] = useState(false);
 
   const handleYes = () => {
-    soundFx.playClick();
+    soundFx.playDoor();
     setGlitching(true);
     setTimeout(() => {
       onSelectYes();

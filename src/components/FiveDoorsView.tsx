@@ -93,7 +93,11 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
               <button
                 key={level.id}
                 onClick={() => {
-                  soundFx.playClick();
+                  if (isUnlocked) {
+                    soundFx.playDoor();
+                  } else {
+                    soundFx.playError();
+                  }
                   onSelectLevel(level);
                 }}
                 className={`relative shrink-0 w-24 h-44 sm:w-28 sm:h-52 rounded-2xl border-2 bg-gradient-to-b ${style} p-2 flex flex-col items-center justify-between text-center transition-all duration-300 hover:scale-105 shadow-2xl backdrop-blur-md group/door ${

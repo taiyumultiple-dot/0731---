@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PuzzleGameConfig } from "../types";
 import { KeyRound, Check, HelpCircle, Sparkles } from "lucide-react";
+import { soundFx } from "../utils/audio";
 
 interface PuzzleCipherProps {
   config: PuzzleGameConfig;
@@ -36,8 +37,10 @@ export const PuzzleCipher: React.FC<PuzzleCipherProps> = ({ config, onSuccess })
     const formattedInput = inputVal.trim().toUpperCase();
     if (formattedInput === solutionText || previewText === solutionText) {
       setErrorMsg(null);
+      soundFx.playVictory();
       onSuccess();
     } else {
+      soundFx.playError();
       setErrorMsg("解密文字不正確，試著調整推移位數或檢查拼字！");
     }
   };

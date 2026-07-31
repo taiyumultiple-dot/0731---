@@ -43,7 +43,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-400 p-0.5 shadow-md shadow-indigo-500/20 flex items-center justify-center font-serif font-bold text-slate-950 text-base">
               ✦
             </div>
-            <h1 className="text-base sm:text-lg font-bold font-serif tracking-wider bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent">
+            <h1 className="text-base sm:text-lg font-bold font-serif tracking-wider bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent animate-glitch-flicker">
               {title}
             </h1>
           </div>

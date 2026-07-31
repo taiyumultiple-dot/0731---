@@ -21,6 +21,7 @@ import { StoryOverviewView } from "./components/StoryOverviewView";
 import { FiveDoorsView } from "./components/FiveDoorsView";
 import { ChapterIntroView } from "./components/ChapterIntroView";
 import { soundFx } from "./utils/audio";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   // Game Progress State
@@ -64,6 +65,12 @@ export default function App() {
     | "five-doors";
 
   const [currentView, setCurrentView] = useState<ViewState>("hub");
+
+  // Centralized screen navigation helper — plays a whoosh transition sound
+  const goTo = (view: ViewState) => {
+    soundFx.playSwoosh();
+    setCurrentView(view);
+  };
   const [activeNavTab, setActiveNavTab] = useState<NavTab>("home");
 
   const [selectedVolume, setSelectedVolume] = useState<VolumeData | null>(
@@ -87,8 +94,10 @@ export default function App() {
 
   const handleToggleSound = () => {
     setSoundEnabled((prev) => {
-      soundFx.enabled = !prev;
-      return !prev;
+      const next = !prev;
+      soundFx.enabled = next;
+      soundFx.toggleMusic(next);
+      return next;
     });
   };
 
@@ -106,9 +115,9 @@ export default function App() {
     setActiveNavTab(tab);
 
     if (tab === "home") {
-      setCurrentView("hub");
+      goTo("hub");
     } else if (tab === "cases") {
-      setCurrentView("five-doors");
+      goTo("five-doors");
     } else if (tab === "characters") {
       setInventoryModalOpen(true);
     } else if (tab === "daily") {
@@ -143,7 +152,7 @@ export default function App() {
     }));
 
     setActiveLevel(level);
-    setCurrentView("puzzle");
+    goTo("puzzle");
   };
 
   // Quick Continue from Hub
@@ -204,7 +213,7 @@ export default function App() {
     if (currentIdx >= 0 && currentIdx < allLevels.length - 1) {
       handleOpenCaseDetail(allLevels[currentIdx + 1]);
     } else {
-      setCurrentView("five-doors");
+      goTo("five-doors");
     }
   };
 
@@ -247,7 +256,7 @@ export default function App() {
     };
     setUserProgress(defaultProgress);
     localStorage.removeItem("multiverse_exploration_progress_v3");
-    setCurrentView("hub");
+    goTo("hub");
     setLandingModalOpen(true);
   };
 
@@ -267,6 +276,7 @@ export default function App() {
         <LandingModal
           onStartGame={() => {
             soundFx.playClick();
+            soundFx.startAmbient();
             setLandingModalOpen(false);
           }}
         />
@@ -275,7 +285,7 @@ export default function App() {
       {/* Global Header Nav */}
       <HeaderNav
         onBackToOffice={
-          currentView !== "hub" ? () => setCurrentView("hub") : undefined
+          currentView !== "hub" ? () => goTo("hub") : undefined
         }
         stamina={userProgress.stamina}
         maxStamina={userProgress.maxStamina}
@@ -289,38 +299,46 @@ export default function App() {
 
       {/* Main View Switcher */}
       <main className="max-w-6xl mx-auto px-4 py-6 relative z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentView}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
+          >
         {currentView === "hub" && (
           <HubView
             userProgress={userProgress}
             onSelectVolume={(vol) => {
               setSelectedVolume(vol);
-              setCurrentView("case-select");
+              goTo("case-select");
             }}
             onOpenInventory={() => setInventoryModalOpen(true)}
             onOpenQuests={() => setQuestModalOpen(true)}
             onOpenAICaseGenerator={() => setAiCaseModalOpen(true)}
             onQuickContinue={handleQuickContinue}
             onOpenCaseDetail={handleOpenCaseDetail}
-            onNavigateToChapterIntro={() => setCurrentView("chapter-intro")}
-            onNavigateToStoryOverview={() => setCurrentView("story-overview")}
-            onNavigateToChoiceMoment={() => setCurrentView("choice-moment")}
-            onNavigateToFiveDoors={() => setCurrentView("five-doors")}
-            onNavigateToStoryTeaser={() => setCurrentView("story-teaser")}
+            onNavigateToChapterIntro={() => goTo("chapter-intro")}
+            onNavigateToStoryOverview={() => goTo("story-overview")}
+            onNavigateToChoiceMoment={() => goTo("choice-moment")}
+            onNavigateToFiveDoors={() => goTo("five-doors")}
+            onNavigateToStoryTeaser={() => goTo("story-teaser")}
           />
         )}
 
         {currentView === "story-teaser" && (
           <StoryTeaserView
-            onStartExploration={() => setCurrentView("choice-moment")}
-            onContinueJourney={() => setCurrentView("five-doors")}
+            onStartExploration={() => goTo("choice-moment")}
+            onContinueJourney={() => goTo("five-doors")}
           />
         )}
 
         {currentView === "choice-moment" && (
           <ChoiceMomentView
-            onSelectYes={() => setCurrentView("five-doors")}
+            onSelectYes={() => goTo("five-doors")}
             onSelectNo={() => alert("「維持輪迴：你選擇留在辦公室裏，但隨時可按 YES 改變命運。」")}
-            onBack={() => setCurrentView("hub")}
+            onBack={() => goTo("hub")}
             stamina={userProgress.stamina}
             coins={userProgress.coins}
             soundEnabled={soundEnabled}
@@ -330,8 +348,8 @@ export default function App() {
 
         {currentView === "story-overview" && (
           <StoryOverviewView
-            onStartExploration={() => setCurrentView("choice-moment")}
-            onBackToChapters={() => setCurrentView("five-doors")}
+            onStartExploration={() => goTo("choice-moment")}
+            onBackToChapters={() => goTo("five-doors")}
             stamina={userProgress.stamina}
             coins={userProgress.coins}
           />
@@ -339,9 +357,9 @@ export default function App() {
 
         {currentView === "chapter-intro" && (
           <ChapterIntroView
-            onViewSummary={() => setCurrentView("story-overview")}
-            onContinueChapter={() => setCurrentView("five-doors")}
-            onBack={() => setCurrentView("hub")}
+            onViewSummary={() => goTo("story-overview")}
+            onContinueChapter={() => goTo("five-doors")}
+            onBack={() => goTo("hub")}
             stamina={userProgress.stamina}
             coins={userProgress.coins}
           />
@@ -351,7 +369,7 @@ export default function App() {
           <FiveDoorsView
             completedLevelIds={userProgress.completedLevelIds}
             onSelectLevel={handleOpenCaseDetail}
-            onBack={() => setCurrentView("hub")}
+            onBack={() => goTo("hub")}
             stamina={userProgress.stamina}
             coins={userProgress.coins}
           />
@@ -362,7 +380,7 @@ export default function App() {
             volume={selectedVolume}
             userProgress={userProgress}
             onSelectLevel={handleOpenCaseDetail}
-            onBack={() => setCurrentView("hub")}
+            onBack={() => goTo("hub")}
           />
         )}
 
@@ -373,6 +391,8 @@ export default function App() {
             stamina={userProgress.stamina}
           />
         )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Bottom Navigation Bar */}
@@ -388,7 +408,7 @@ export default function App() {
           onContinue={() => handleStartInvestigation(caseBriefModal)}
           onBackToChapters={() => {
             setCaseBriefModal(null);
-            setCurrentView("five-doors");
+            goTo("five-doors");
           }}
           onClose={() => setCaseBriefModal(null)}
         />
@@ -401,7 +421,7 @@ export default function App() {
           onNextLevel={handleNextLevel}
           onBackToHub={() => {
             setVictoryModalOpen(false);
-            setCurrentView("five-doors");
+            goTo("five-doors");
           }}
         />
       )}

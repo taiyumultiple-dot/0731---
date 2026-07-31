@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PuzzleGameConfig } from "../types";
 import { FileSearch, CheckCircle2, XCircle, AlertCircle } from "lucide-react";
+import { soundFx } from "../utils/audio";
 
 interface PuzzleLogicProps {
   config: PuzzleGameConfig;
@@ -17,6 +18,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
   const handleSelectOption = (option: (typeof options)[0]) => {
     setSelectedOptionId(option.id);
     if (option.isCorrect) {
+      soundFx.playVictory();
       setFeedback({
         isCorrect: true,
         text: option.explanation,
@@ -25,6 +27,7 @@ export const PuzzleLogic: React.FC<PuzzleLogicProps> = ({ config, onSuccess }) =
         onSuccess();
       }, 1500);
     } else {
+      soundFx.playError();
       setFeedback({
         isCorrect: false,
         text: option.explanation,

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PuzzleGameConfig } from "../types";
 import { Lock, RefreshCw, Send, Sparkles, HelpCircle, Check, Delete } from "lucide-react";
+import { soundFx } from "../utils/audio";
 
 interface Puzzle1A2BProps {
   config: PuzzleGameConfig;
@@ -44,9 +45,11 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
     setErrorMsg(null);
     if (currentGuess.length >= digitsCount) return;
     if (currentGuess.includes(num.toString())) {
+      soundFx.playError();
       setErrorMsg("密碼不含重複數字！");
       return;
     }
+    soundFx.playHover();
     setCurrentGuess((prev) => prev + num.toString());
   };
 
@@ -63,6 +66,7 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
   // Evaluate 1A2B logic
   const handleGuessSubmit = () => {
     if (currentGuess.length !== digitsCount) {
+      soundFx.playError();
       setErrorMsg(`請輸入完整 ${digitsCount} 位數字`);
       return;
     }
@@ -84,9 +88,12 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
 
     // Check Win
     if (a === digitsCount) {
+      soundFx.playVictory();
       setTimeout(() => {
         onSuccess();
       }, 500);
+    } else {
+      soundFx.playClick();
     }
   };
 
