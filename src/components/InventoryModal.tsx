@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X, User, Sparkles, DoorClosed, BookOpen } from "lucide-react";
+import { CHARACTER_IMAGES } from "../data/characterAssets";
 
 interface InventoryModalProps {
   unlockedClues: string[];
@@ -18,14 +19,14 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
       name: "可華",
       role: "主角 · 高中生",
       desc: "面臨升學與人生方向的選擇，害怕重蹈父親日復一日平庸生活的覆轍。在強光中穿梭於多重宇宙，跌入辦公室後按下了 YES，踏上尋找真正自我的旅程。",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      image: CHARACTER_IMAGES.KEHUA_OFFICE,
     },
     {
       id: "xiaowen",
       name: "王小文",
       role: "長大後的神秘女子 · 引導者",
       desc: "成熟自信的引導者。在可華按下 YES 門後微笑出現，引領他穿越折疊城市的五扇關卡。言談間隱約透漏著對可華過去與未來的深刻了解。",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      image: CHARACTER_IMAGES.WENWEN_BUST,
     },
   ];
 
@@ -91,7 +92,6 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   src={c.image}
                   alt={c.name}
                   className="w-14 h-18 rounded-xl object-cover shrink-0 border border-purple-500/30"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">

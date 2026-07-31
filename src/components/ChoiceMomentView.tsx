@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, Heart, Sparkles, Volume2, VolumeX, Shield, Radio, Check } from "lucide-react";
 import { soundFx } from "../utils/audio";
+import { CHARACTER_IMAGES } from "../data/characterAssets";
 
 interface ChoiceMomentViewProps {
   onSelectYes: () => void;
@@ -124,10 +125,9 @@ export const ChoiceMomentView: React.FC<ChoiceMomentViewProps> = ({
       {/* Main Office Scene Visual (Matching Image 1) */}
       <div className="relative w-full h-[360px] sm:h-[400px] rounded-3xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-950 group">
         <img
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80"
+          src={CHARACTER_IMAGES.KEHUA_OFFICE}
           alt="辦公室電腦抉擇"
           className="w-full h-full object-cover object-top opacity-85 filter contrast-125 saturate-110"
-          referrerPolicy="no-referrer"
         />
 
         {/* Dark Office Overlay & Glitch Overlay */}
@@ -194,10 +194,9 @@ export const ChoiceMomentView: React.FC<ChoiceMomentViewProps> = ({
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-xl border border-purple-500/40 overflow-hidden shrink-0 bg-slate-950">
             <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              src={CHARACTER_IMAGES.MYSTERY_CALLER}
               alt="神秘通話者"
               className="w-full h-full object-cover object-top opacity-90 filter contrast-125"
-              referrerPolicy="no-referrer"
             />
           </div>
 

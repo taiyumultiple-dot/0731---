@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LevelData } from "../types";
 import { ChevronDown, ChevronUp, Heart, ChevronRight, BookOpen, Sparkles, DoorClosed } from "lucide-react";
+import { CHARACTER_IMAGES } from "../data/characterAssets";
 
 interface CaseBriefModalProps {
   level: LevelData;
@@ -36,10 +37,9 @@ export const CaseBriefModal: React.FC<CaseBriefModalProps> = ({
         <div className="p-4 rounded-2xl bg-slate-950/80 border border-purple-500/20 flex items-start gap-4">
           <div className="w-16 h-20 rounded-xl border border-purple-500/30 overflow-hidden shrink-0 bg-slate-900">
             <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              src={CHARACTER_IMAGES.WENWEN_BUST}
               alt="王小文"
               className="w-full h-full object-cover object-top filter contrast-110"
-              referrerPolicy="no-referrer"
             />
           </div>
 

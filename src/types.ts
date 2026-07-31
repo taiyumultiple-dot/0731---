@@ -3,6 +3,9 @@ export type PuzzleType = "1a2b" | "cipher" | "logic" | "pattern";
 export interface DialogueNode {
   speaker: string;
   text: string;
+  // charlotte=成年王小文, client=高中王小文, detective=可華,
+  // doctor=同事, suspect/police=神秘通話者（電腦螢幕）
+  // 圖片對應請見 src/data/characterAssets.ts + DialogueOverlay.tsx
   portrait: "charlotte" | "client" | "detective" | "suspect" | "doctor" | "police";
 }
 

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="55%" stop-color="#134e4a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgC)"/>
+  <ellipse cx="300" cy="330" rx="90" ry="105" fill="#134e4a" opacity="0.9"/>
+  <path d="M155 720 C155 610 215 545 300 545 C385 545 445 610 445 720 Z" fill="#052e28"/>
+  <path d="M270 200 C270 170 330 170 330 200 L330 260 C330 285 270 285 270 260 Z" fill="#0f766e"/>
+  <text x="300" y="770" text-anchor="middle" font-family="serif" font-size="28" fill="#99f6e4" opacity="0.85">同事 · 待補真圖</text>
+</svg>

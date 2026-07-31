@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DialogueNode } from "../types";
 import { ChevronDown, Sparkles } from "lucide-react";
+import { CHARACTER_IMAGES } from "../data/characterAssets";
 
 interface DialogueOverlayProps {
   dialogues: DialogueNode[];
@@ -41,14 +42,18 @@ export const DialogueOverlay: React.FC<DialogueOverlayProps> = ({
 
   const getCharacterImage = (portrait: string) => {
     switch (portrait) {
-      case "charlotte":
-        return "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
-      case "detective":
-        return "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80";
+      case "charlotte": // 成年王小文
+        return CHARACTER_IMAGES.WENWEN_FULL;
+      case "client": // 高中時期的王小文
+        return CHARACTER_IMAGES.WENWEN_BUST;
+      case "detective": // 可華
+        return CHARACTER_IMAGES.KEHUA_BUST;
+      case "doctor": // 同事
+        return CHARACTER_IMAGES.COLLEAGUE;
+      case "suspect": // 神秘通話者（電腦螢幕視窗）
       case "police":
-        return "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80";
       default:
-        return "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80";
+        return CHARACTER_IMAGES.MYSTERY_CALLER;
     }
   };
 

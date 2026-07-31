@@ -3,6 +3,7 @@ import { ChevronLeft, Heart, Sparkles, Volume2, Lock, CheckCircle, DoorClosed } 
 import { STORY_VOLUMES } from "../data/storyData";
 import { LevelData } from "../types";
 import { soundFx } from "../utils/audio";
+import { CHARACTER_IMAGES } from "../data/characterAssets";
 
 interface FiveDoorsViewProps {
   completedLevelIds: number[];
@@ -71,10 +72,9 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
       <div className="relative w-full h-[380px] sm:h-[420px] rounded-3xl overflow-hidden border-2 border-indigo-500/40 shadow-2xl bg-slate-950 group">
         {/* Background Image: Inception folded skyscrapers */}
         <img
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80"
+          src={CHARACTER_IMAGES.FOLDED_CITY}
           alt="折疊城市五扇門"
           className="w-full h-full object-cover object-center opacity-75 filter contrast-125 saturate-110"
-          referrerPolicy="no-referrer"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-purple-950/40" />
@@ -131,10 +131,9 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl border border-purple-500/40 overflow-hidden shrink-0 bg-slate-900">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+                src={CHARACTER_IMAGES.WENWEN_BUST}
                 alt="小文"
                 className="w-full h-full object-cover object-top opacity-90 filter contrast-125"
-                referrerPolicy="no-referrer"
               />
             </div>
 

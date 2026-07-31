@@ -1,0 +1,32 @@
+<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgK" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1a3a"/>
+      <stop offset="55%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="glowK" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hairK" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgK)"/>
+  <rect width="600" height="800" fill="url(#glowK)"/>
+  <!-- short messy hair silhouette -->
+  <path d="M300 160 C380 160 430 220 435 290 C440 250 460 235 465 260 C470 290 450 320 430 325 C425 300 415 285 400 275 C410 300 405 320 390 330 L210 330 C195 320 190 300 200 275 C185 285 175 300 170 325 C150 320 130 290 135 260 C140 235 160 250 165 290 C170 220 220 160 300 160 Z" fill="url(#hairK)"/>
+  <!-- face -->
+  <ellipse cx="300" cy="340" rx="90" ry="105" fill="#1e293b" opacity="0.9"/>
+  <!-- shirt / tie -->
+  <path d="M155 720 C155 610 215 545 300 545 C385 545 445 610 445 720 Z" fill="#0f172a"/>
+  <path d="M280 555 L300 720 L320 555 L300 600 Z" fill="#334155"/>
+  <path d="M265 555 L300 600 L335 555 L300 575 Z" fill="#e2e8f0" opacity="0.7"/>
+  <!-- glitch accent lines -->
+  <rect x="90" y="410" width="60" height="4" fill="#38bdf8" opacity="0.6"/>
+  <rect x="450" y="470" width="70" height="4" fill="#818cf8" opacity="0.6"/>
+  <rect x="120" y="520" width="40" height="3" fill="#38bdf8" opacity="0.4"/>
+  <text x="300" y="770" text-anchor="middle" font-family="serif" font-size="30" fill="#bae6fd" opacity="0.85">可華 · 待補真圖</text>
+</svg>

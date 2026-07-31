@@ -1,0 +1,16 @@
+<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgM" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1033"/>
+      <stop offset="55%" stop-color="#3b0764"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgM)"/>
+  <rect x="140" y="260" width="320" height="220" rx="16" fill="#0b0620" stroke="#a78bfa" stroke-width="3" opacity="0.9"/>
+  <line x1="170" y1="310" x2="430" y2="310" stroke="#a78bfa" stroke-width="3" opacity="0.6"/>
+  <line x1="170" y1="350" x2="380" y2="350" stroke="#a78bfa" stroke-width="3" opacity="0.4"/>
+  <line x1="170" y1="390" x2="410" y2="390" stroke="#a78bfa" stroke-width="3" opacity="0.4"/>
+  <circle cx="300" cy="440" r="14" fill="#c4b5fd" opacity="0.8"/>
+  <text x="300" y="770" text-anchor="middle" font-family="serif" font-size="26" fill="#ddd6fe" opacity="0.85">神秘通話者 · 待補真圖</text>
+</svg>
