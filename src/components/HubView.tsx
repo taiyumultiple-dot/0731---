@@ -12,6 +12,7 @@ import {
   Radio,
 } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_HUB } from "../data/gameBanners";
 
 interface HubViewProps {
   userProgress: UserProgress;
@@ -130,7 +131,7 @@ export const HubView: React.FC<HubViewProps> = ({
             className="relative shrink-0 w-36 h-48 sm:w-44 sm:h-56 rounded-2xl border-2 border-indigo-500/40 overflow-hidden shadow-2xl bg-slate-950 group cursor-pointer"
           >
             <img
-              src={CHARACTER_IMAGES.WENWEN_BUST}
+              src={IMG_HUB}
               alt="長大後的王小文"
               className="w-full h-full object-cover object-top opacity-90 group-hover:scale-105 transition-transform duration-500 filter contrast-110 saturate-105"
             />

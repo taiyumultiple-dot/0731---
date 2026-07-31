@@ -2,6 +2,7 @@ import React from "react";
 import { ChevronLeft, Heart, Sparkles, BookOpen, MapPin, Target, Volume2 } from "lucide-react";
 import { soundFx } from "../utils/audio";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_CHAPTERINTRO } from "../data/gameBanners";
 
 interface ChapterIntroViewProps {
   onViewSummary: () => void;
@@ -52,7 +53,7 @@ export const ChapterIntroView: React.FC<ChapterIntroViewProps> = ({
       {/* Main Hero Card with Adult Xiaowen Portrait (Matching Image 6) */}
       <div className="relative w-full h-[320px] rounded-3xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-950 group">
         <img
-          src={CHARACTER_IMAGES.WENWEN_BUST}
+          src={IMG_CHAPTERINTRO}
           alt="王小文的引導"
           className="w-full h-full object-cover object-top opacity-85 filter contrast-110 saturate-110"
         />
@@ -125,7 +126,7 @@ export const ChapterIntroView: React.FC<ChapterIntroViewProps> = ({
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-xl border border-purple-500/40 overflow-hidden shrink-0 bg-slate-950">
             <img
-              src={CHARACTER_IMAGES.WENWEN_BUST}
+              src={IMG_CHAPTERINTRO}
               alt="小文"
               className="w-full h-full object-cover object-top opacity-90 filter contrast-125"
             />

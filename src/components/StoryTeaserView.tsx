@@ -1,6 +1,7 @@
 import React from "react";
 import { Sparkles, ChevronRight, Compass } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_TEASER } from "../data/gameBanners";
 
 interface StoryTeaserViewProps {
   onStartExploration: () => void;
@@ -17,7 +18,7 @@ export const StoryTeaserView: React.FC<StoryTeaserViewProps> = ({
       <div className="relative w-full h-[380px] sm:h-[420px] rounded-3xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-950 group">
         {/* Floating Multiverse Anime Art */}
         <img
-          src={CHARACTER_IMAGES.WENWEN_FULL}
+          src={IMG_TEASER}
           alt="多重宇宙的抉擇 前導預告"
           className="w-full h-full object-cover object-center filter contrast-125 saturate-110 opacity-80 group-hover:scale-105 transition-transform duration-700"
         />

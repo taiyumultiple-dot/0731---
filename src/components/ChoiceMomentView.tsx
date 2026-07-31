@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronLeft, Heart, Sparkles, Volume2, VolumeX, Shield, Radio, Check } from "lucide-react";
 import { soundFx } from "../utils/audio";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_CHOICE } from "../data/gameBanners";
 
 interface ChoiceMomentViewProps {
   onSelectYes: () => void;
@@ -125,7 +126,7 @@ export const ChoiceMomentView: React.FC<ChoiceMomentViewProps> = ({
       {/* Main Office Scene Visual (Matching Image 1) */}
       <div className="relative w-full h-[360px] sm:h-[400px] rounded-3xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-950 group">
         <img
-          src={CHARACTER_IMAGES.KEHUA_OFFICE}
+          src={IMG_CHOICE}
           alt="辦公室電腦抉擇"
           className="w-full h-full object-cover object-top opacity-85 filter contrast-125 saturate-110"
         />

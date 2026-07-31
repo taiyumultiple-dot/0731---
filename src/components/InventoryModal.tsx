@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { X, User, Sparkles, DoorClosed, BookOpen } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_CHOICE, IMG_CHAPTERINTRO } from "../data/gameBanners";
 
 interface InventoryModalProps {
   unlockedClues: string[];
@@ -19,14 +20,14 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
       name: "可華",
       role: "主角 · 高中生",
       desc: "面臨升學與人生方向的選擇，害怕重蹈父親日復一日平庸生活的覆轍。在強光中穿梭於多重宇宙，跌入辦公室後按下了 YES，踏上尋找真正自我的旅程。",
-      image: CHARACTER_IMAGES.KEHUA_OFFICE,
+      image: IMG_CHOICE,
     },
     {
       id: "xiaowen",
       name: "王小文",
       role: "長大後的神秘女子 · 引導者",
       desc: "成熟自信的引導者。在可華按下 YES 門後微笑出現，引領他穿越折疊城市的五扇關卡。言談間隱約透漏著對可華過去與未來的深刻了解。",
-      image: CHARACTER_IMAGES.WENWEN_BUST,
+      image: IMG_CHAPTERINTRO,
     },
   ];
 

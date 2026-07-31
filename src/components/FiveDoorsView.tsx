@@ -4,6 +4,7 @@ import { STORY_VOLUMES } from "../data/storyData";
 import { LevelData } from "../types";
 import { soundFx } from "../utils/audio";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { IMG_FIVEDOORS, IMG_CHAPTERINTRO } from "../data/gameBanners";
 
 interface FiveDoorsViewProps {
   completedLevelIds: number[];
@@ -72,7 +73,7 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
       <div className="relative w-full h-[380px] sm:h-[420px] rounded-3xl overflow-hidden border-2 border-indigo-500/40 shadow-2xl bg-slate-950 group">
         {/* Background Image: Inception folded skyscrapers */}
         <img
-          src={CHARACTER_IMAGES.FOLDED_CITY}
+          src={IMG_FIVEDOORS}
           alt="折疊城市五扇門"
           className="w-full h-full object-cover object-center opacity-75 filter contrast-125 saturate-110"
         />
@@ -131,7 +132,7 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl border border-purple-500/40 overflow-hidden shrink-0 bg-slate-900">
               <img
-                src={CHARACTER_IMAGES.WENWEN_BUST}
+                src={IMG_CHAPTERINTRO}
                 alt="小文"
                 className="w-full h-full object-cover object-top opacity-90 filter contrast-125"
               />
