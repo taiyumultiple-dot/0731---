@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
-import { IMG_OVERVIEW } from "../data/gameBanners";
+import { IMG_DUO } from "../data/characterFullBody";
 
 interface StoryOverviewViewProps {
   onStartExploration: () => void;
@@ -100,11 +100,11 @@ export const StoryOverviewView: React.FC<StoryOverviewViewProps> = ({
           </div>
 
           {/* Right Anime Art (Kehua & Xiaowen) */}
-          <div className="w-36 h-36 rounded-2xl border border-purple-500/30 overflow-hidden shrink-0 shadow-xl bg-slate-950">
+          <div className="w-40 h-48 rounded-2xl border border-purple-500/30 overflow-hidden shrink-0 shadow-xl bg-slate-950">
             <img
-              src={IMG_OVERVIEW}
+              src={IMG_DUO}
               alt="可華與小文"
-              className="w-full h-full object-cover object-top opacity-90 filter contrast-110"
+              className="w-full h-full object-contain object-top opacity-95 filter contrast-110"
             />
           </div>
         </div>
