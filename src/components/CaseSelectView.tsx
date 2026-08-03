@@ -86,7 +86,7 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
                       )}
                     </div>
 
-                    <p className="text-base font-serif text-amber-200/70 line-clamp-2 leading-relaxed mb-3">
+                    <p className="text-base font-serif text-amber-200/90 line-clamp-3 leading-relaxed mb-3">
                       {level.narrative}
                     </p>
 
