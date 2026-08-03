@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { LevelData } from "../types";
 import { ChevronDown, ChevronUp, Heart, ChevronRight, BookOpen, Sparkles, DoorClosed } from "lucide-react";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 
 interface CaseBriefModalProps {

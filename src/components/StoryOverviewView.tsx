@@ -1,6 +1,5 @@
 import React from "react";
 import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass, MessageCircle } from "lucide-react";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_DUO } from "../data/characterFullBody";
 
 interface StoryOverviewViewProps {

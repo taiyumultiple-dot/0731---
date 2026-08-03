@@ -2,7 +2,6 @@ import React from "react";
 import { ChevronLeft, Heart, Sparkles, Volume2, Lock, CheckCircle, DoorClosed } from "lucide-react";
 import { LevelData } from "../types";
 import { soundFx } from "../utils/audio";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_FIVEDOORS } from "../data/gameBanners";
 import { IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 

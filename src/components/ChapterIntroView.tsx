@@ -1,7 +1,6 @@
 import React from "react";
 import { ChevronLeft, Heart, Sparkles, BookOpen, MapPin, Target, Volume2 } from "lucide-react";
 import { soundFx } from "../utils/audio";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_CHAPTERINTRO } from "../data/gameBanners";
 
 interface ChapterIntroViewProps {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Sparkles, ChevronRight, Compass, PlayCircle } from "lucide-react";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_TEASER } from "../data/gameBanners";
 import { VideoPlayerModal } from "./VideoPlayerModal";
 

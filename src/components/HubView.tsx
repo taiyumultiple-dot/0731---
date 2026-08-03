@@ -11,7 +11,6 @@ import {
   X,
   Radio,
 } from "lucide-react";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_WENWEN_FULL } from "../data/characterFullBody";
 import { IMG_HUB } from "../data/gameBanners";
 
