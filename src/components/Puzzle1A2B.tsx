@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PuzzleGameConfig } from "../types";
-import { Lock, RefreshCw, Send, Sparkles, HelpCircle, Check, Delete } from "lucide-react";
+import { Lock, RefreshCw, Send, Sparkles, HelpCircle, Check, Delete, Brain } from "lucide-react";
 import { soundFx } from "../utils/audio";
 
 interface Puzzle1A2BProps {
@@ -21,6 +21,7 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
 
   const [currentGuess, setCurrentGuess] = useState<string>("");
   const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [reasoningPower, setReasoningPower] = useState<number>(100);
   const [markedNumbers, setMarkedNumbers] = useState<Record<number, "normal" | "crossed" | "highlight">>(
     {
       0: "normal",
@@ -39,6 +40,21 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
   const [aiHint, setAiHint] = useState<string | null>(null);
   const [loadingHint, setLoadingHint] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [showBreatheHint, setShowBreatheHint] = useState<boolean>(false);
+
+  // 推理力歸零時，給予一個「深呼吸」的溫柔恢復，而非硬性卡關
+  useEffect(() => {
+    if (reasoningPower <= 15) {
+      setShowBreatheHint(true);
+      const timer = setTimeout(() => {
+        setReasoningPower((prev) => Math.min(100, prev + 30));
+        setShowBreatheHint(false);
+      }, 2200);
+      return () => clearTimeout(timer);
+    } else {
+      setShowBreatheHint(false);
+    }
+  }, [reasoningPower]);
 
   // Number Keypad Click
   const handleDigitClick = (num: number) => {
@@ -89,11 +105,18 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
     // Check Win
     if (a === digitsCount) {
       soundFx.playVictory();
+      setReasoningPower(100);
       setTimeout(() => {
         onSuccess();
       }, 500);
     } else {
       soundFx.playClick();
+      // 推理力隨嘗試消耗，越接近答案回復越多，鼓勵持續思考而非懲罰嘗試
+      setReasoningPower((prev) => {
+        const delta = -14 + a * 6 + b * 2;
+        const next = Math.max(0, Math.min(100, prev + delta));
+        return next;
+      });
     }
   };
 
@@ -152,6 +175,32 @@ ${historyStr || "目前尚未有嘗試紀錄"}
         <p className="text-base text-amber-200/80 leading-relaxed">
           玩法：輸入 {digitsCount} 位不重複數字。<b>A</b> 代表數字與位置均正確，<b>B</b> 代表數字正確但位置錯誤。
         </p>
+      </div>
+
+      {/* Reasoning Power Bar */}
+      <div className="p-3.5 rounded-2xl border border-pink-500/30 bg-slate-900/90 space-y-1.5 shadow-lg">
+        <div className="flex items-center justify-between text-base font-serif font-bold">
+          <div className="flex items-center gap-1.5 text-pink-300">
+            <Brain className="w-4 h-4" />
+            <span>推理力</span>
+          </div>
+          <span className="font-mono text-pink-200">{reasoningPower} / 100</span>
+        </div>
+        <div className="h-2.5 rounded-full bg-slate-950 border border-pink-500/20 overflow-hidden">
+          <div
+            className={`h-full rounded-full transition-all duration-500 ${
+              reasoningPower <= 15
+                ? "bg-gradient-to-r from-rose-500 to-rose-400 animate-pulse"
+                : "bg-gradient-to-r from-pink-500 via-fuchsia-400 to-purple-400"
+            }`}
+            style={{ width: `${reasoningPower}%` }}
+          />
+        </div>
+        {showBreatheHint && (
+          <p className="text-base font-serif text-rose-300 pt-0.5 animate-in fade-in duration-300">
+            「先別急，深呼吸一下……小文正在幫你恢復推理力。」
+          </p>
+        )}
       </div>
 
       {/* Secret Password Display Slots */}

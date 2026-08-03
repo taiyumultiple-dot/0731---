@@ -20,6 +20,9 @@ import { ChoiceMomentView } from "./components/ChoiceMomentView";
 import { StoryOverviewView } from "./components/StoryOverviewView";
 import { FiveDoorsView } from "./components/FiveDoorsView";
 import { ChapterIntroView } from "./components/ChapterIntroView";
+import { MonsterTrackingModal } from "./components/MonsterTrackingModal";
+import { getRandomMonster } from "./data/monsterData";
+import { MonsterData } from "./types";
 import { soundFx } from "./utils/audio";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -27,7 +30,7 @@ export default function App() {
   // Game Progress State
   const [userProgress, setUserProgress] = useState<UserProgress>(() => {
     try {
-      const saved = localStorage.getItem("multiverse_exploration_progress_v3");
+      const saved = localStorage.getItem("multiverse_exploration_progress_v4");
       if (saved) {
         return JSON.parse(saved);
       }
@@ -43,12 +46,16 @@ export default function App() {
       unlockedClues: ["GLITCH 故障門的鑰匙", "高中課本的信紙"],
       detectiveRank: "初入多重宇宙",
       claimedQuestIds: [],
+      capturedMonsterIds: [],
+      weeklyCheckIns: 0,
+      lastCheckInDate: null,
+      weeklyRewardClaimed: false,
     };
   });
 
   useEffect(() => {
     localStorage.setItem(
-      "multiverse_exploration_progress_v3",
+      "multiverse_exploration_progress_v4",
       JSON.stringify(userProgress)
     );
   }, [userProgress]);
@@ -84,6 +91,7 @@ export default function App() {
 
   const [victoryModalOpen, setVictoryModalOpen] = useState(false);
   const [questModalOpen, setQuestModalOpen] = useState(false);
+  const [trackingMonster, setTrackingMonster] = useState<MonsterData | null>(null);
   const [aiCaseModalOpen, setAiCaseModalOpen] = useState(false);
   const [inventoryModalOpen, setInventoryModalOpen] = useState(false);
   const [shopModalOpen, setShopModalOpen] = useState(false);
@@ -232,6 +240,50 @@ export default function App() {
     }));
   };
 
+  // Daily Check-In
+  const handleCheckIn = () => {
+    const today = new Date().toISOString().slice(0, 10);
+    setUserProgress((prev) => {
+      if (prev.lastCheckInDate === today) return prev;
+      soundFx.playClick();
+      return {
+        ...prev,
+        weeklyCheckIns: Math.min(7, prev.weeklyCheckIns + 1),
+        lastCheckInDate: today,
+      };
+    });
+  };
+
+  // Claim Weekly 7-Day Reward
+  const handleClaimWeeklyReward = () => {
+    soundFx.playVictory();
+    setUserProgress((prev) => ({
+      ...prev,
+      coins: prev.coins + 500,
+      weeklyRewardClaimed: true,
+    }));
+  };
+
+  // Start Monster Tracking (迷惘化身追蹤)
+  const handleStartTracking = () => {
+    if (userProgress.stamina < 30) return;
+    setUserProgress((prev) => ({ ...prev, stamina: prev.stamina - 30 }));
+    setTrackingMonster(getRandomMonster(userProgress.capturedMonsterIds));
+    soundFx.playDoor();
+  };
+
+  // Capture Monster Success
+  const handleCaptureMonster = (monsterId: string, coinsReward: number) => {
+    setUserProgress((prev) => ({
+      ...prev,
+      coins: prev.coins + coinsReward,
+      capturedMonsterIds: prev.capturedMonsterIds.includes(monsterId)
+        ? prev.capturedMonsterIds
+        : [...prev.capturedMonsterIds, monsterId],
+    }));
+    setTrackingMonster(null);
+  };
+
   // Buy Stamina Potion in Shop
   const handleBuyStamina = (cost: number, staminaAmount: number) => {
     soundFx.playVictory();
@@ -253,9 +305,13 @@ export default function App() {
       unlockedClues: ["GLITCH 故障門的鑰匙"],
       detectiveRank: "初入多重宇宙",
       claimedQuestIds: [],
+      capturedMonsterIds: [],
+      weeklyCheckIns: 0,
+      lastCheckInDate: null,
+      weeklyRewardClaimed: false,
     };
     setUserProgress(defaultProgress);
-    localStorage.removeItem("multiverse_exploration_progress_v3");
+    localStorage.removeItem("multiverse_exploration_progress_v4");
     goTo("hub");
     setLandingModalOpen(true);
   };
@@ -430,7 +486,18 @@ export default function App() {
         <QuestModal
           userProgress={userProgress}
           onClaimReward={handleClaimQuestReward}
+          onCheckIn={handleCheckIn}
+          onClaimWeeklyReward={handleClaimWeeklyReward}
+          onStartTracking={handleStartTracking}
           onClose={() => setQuestModalOpen(false)}
+        />
+      )}
+
+      {trackingMonster && (
+        <MonsterTrackingModal
+          monster={trackingMonster}
+          onCapture={handleCaptureMonster}
+          onClose={() => setTrackingMonster(null)}
         />
       )}
 
@@ -444,6 +511,7 @@ export default function App() {
       {inventoryModalOpen && (
         <InventoryModal
           unlockedClues={userProgress.unlockedClues}
+          capturedMonsterIds={userProgress.capturedMonsterIds}
           onClose={() => setInventoryModalOpen(false)}
         />
       )}

@@ -1,4 +1,11 @@
-export type PuzzleType = "1a2b" | "cipher" | "logic" | "pattern";
+export type PuzzleType = "1a2b" | "cipher" | "logic" | "pattern" | "syllogism";
+
+export interface SyllogismStatement {
+  id: string;
+  text: string;
+  role: "major" | "minor" | "conclusion" | "fallacy";
+  fallacyName?: string; // 若為謬誤，標示謬誤類型（答對後才揭曉）
+}
 
 export interface DialogueNode {
   speaker: string;
@@ -21,6 +28,9 @@ export interface PuzzleGameConfig {
   // For Logic Deduction
   clues?: string[];
   options?: { id: string; label: string; isCorrect: boolean; explanation: string }[];
+  // For Syllogism (大前提-小前提-結論 排序 + 排除謬誤)
+  syllogismStatements?: SyllogismStatement[];
+  syllogismIntro?: string;
 }
 
 export interface LevelData {
@@ -65,6 +75,19 @@ export interface UserProgress {
   unlockedClues: string[];
   detectiveRank: string; // e.g., "實習偵探", "貝克街偵探", "皇家皇家大偵探", "名偵探"
   claimedQuestIds: string[];
+  capturedMonsterIds: string[];
+  weeklyCheckIns: number; // 0-7，本週已簽到天數
+  lastCheckInDate: string | null; // ISO 日期字串，避免同一天重複簽到
+  weeklyRewardClaimed: boolean;
+}
+
+export interface MonsterData {
+  id: string;
+  name: string;
+  englishName: string;
+  description: string;
+  theme: string; // 對應的道門主題
+  digitsCount: number;
 }
 
 export interface QuestItem {

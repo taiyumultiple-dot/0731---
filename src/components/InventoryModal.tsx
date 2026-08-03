@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { X, User, Sparkles, DoorClosed, BookOpen } from "lucide-react";
-import { CHARACTER_IMAGES } from "../data/characterAssets";
+import { X, User, Sparkles, Ghost } from "lucide-react";
 import { IMG_KEHUA_PORTRAIT, IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
+import { MONSTERS } from "../data/monsterData";
 
 interface InventoryModalProps {
   unlockedClues: string[];
+  capturedMonsterIds: string[];
   onClose: () => void;
 }
 
 export const InventoryModal: React.FC<InventoryModalProps> = ({
   unlockedClues,
+  capturedMonsterIds,
   onClose,
 }) => {
-  const [activeSubTab, setActiveSubTab] = useState<"characters" | "items">("characters");
+  const [activeSubTab, setActiveSubTab] = useState<"characters" | "items" | "monsters">(
+    "characters"
+  );
 
   const characters = [
     {
@@ -70,6 +74,16 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
             登場人物
           </button>
           <button
+            onClick={() => setActiveSubTab("monsters")}
+            className={`flex-1 py-2 rounded-xl transition-all ${
+              activeSubTab === "monsters"
+                ? "bg-teal-900/80 text-teal-200 border border-teal-400/30 shadow-md"
+                : "text-slate-200 hover:text-teal-200"
+            }`}
+          >
+            迷惘圖鑑 ({capturedMonsterIds.length}/{MONSTERS.length})
+          </button>
+          <button
             onClick={() => setActiveSubTab("items")}
             className={`flex-1 py-2 rounded-xl transition-all ${
               activeSubTab === "items"
@@ -109,6 +123,45 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                 </div>
               </div>
             ))}
+          </div>
+        ) : activeSubTab === "monsters" ? (
+          <div className="space-y-2 max-h-72 overflow-y-auto pr-1 custom-scrollbar">
+            {MONSTERS.map((m) => {
+              const captured = capturedMonsterIds.includes(m.id);
+              return (
+                <div
+                  key={m.id}
+                  className={`p-3.5 rounded-2xl border flex items-center gap-3 ${
+                    captured
+                      ? "border-teal-500/30 bg-slate-950/80"
+                      : "border-slate-800 bg-slate-950/50 opacity-60"
+                  }`}
+                >
+                  <div
+                    className={`p-2.5 rounded-xl border ${
+                      captured
+                        ? "bg-teal-950 text-teal-300 border-teal-500/30"
+                        : "bg-slate-900 text-slate-300 border-slate-800"
+                    }`}
+                  >
+                    <Ghost className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-base font-serif text-teal-200">
+                        {captured ? m.name : "？？？"}
+                      </span>
+                      <span className="text-base font-mono px-2 py-0.5 rounded-full bg-slate-900 text-slate-300 border border-slate-800">
+                        {m.theme}
+                      </span>
+                    </div>
+                    <p className="text-base font-serif text-slate-300/80 leading-relaxed">
+                      {captured ? m.description : "尚未追蹤到這個迷惘化身，去「每日」發動追蹤看看吧。"}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ) : (
           <div className="space-y-2 max-h-72 overflow-y-auto pr-1 custom-scrollbar">
