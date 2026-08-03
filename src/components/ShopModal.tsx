@@ -21,7 +21,7 @@ export const ShopModal: React.FC<ShopModalProps> = ({
   const shopItems = [
     {
       id: "pot_small",
-      title: "維多利亞濃縮提神藥劑",
+      title: "幸福煉金術・專注凝神藥劑",
       staminaAmount: 30,
       coinCost: 50,
       desc: "恢復 30 點精力，供連續進行 3 次案件推理探查。",
@@ -59,7 +59,7 @@ export const ShopModal: React.FC<ShopModalProps> = ({
               <ShoppingBag className="w-4 h-4" />
             </div>
             <h2 className="text-lg font-bold font-serif text-amber-100">
-              維多利亞藥劑商店
+              幸福煉金術補給站
             </h2>
           </div>
 

@@ -25,8 +25,28 @@ export const STORY_VOLUMES: VolumeData[] = [
             coinReward: 100,
             clientName: "來自未來的引導（王小文）",
             narrative:
-              "車上的可華望著疲憊開車的父親，思考著自己是否也會變成這樣的大人。半夢半醒間，車窗外爆發出刺眼強光，將他整個世界吞沒──他以高中生模樣墜入光怪陸離的異次元，劇烈穿梭旋轉後重重跌落在辦公桌上，發現自己已經變成中年大人模樣，驚慌失措！同事只顧催他做事，直到電腦螢幕跳出視窗傳來一個檔案：「探索，YES/NO」。當可華顫抖著按下 YES，四周閃動電腦 BUG GLITCH，門中走出了長大後的王小文...",
+              "清晨，父親開車載可華上學，隨口一句「等你出社會工作，才知道什麼叫壓力」讓可華陷入沈思——他望著父親疲憊的側臉，忍不住想：爸說的那種幸福人生，真的是幸福嗎？半夢半醒間，車窗外爆發出刺眼強光，將他整個世界吞沒──他以高中生模樣墜入光怪陸離的異次元，劇烈穿梭旋轉後重重跌落在辦公桌上，發現自己已經變成中年大人模樣，驚慌失措！同事只顧催他做事，直到電腦螢幕跳出視窗傳來一個檔案：「探索，YES/NO」。當可華顫抖著按下 YES，四周閃動電腦 BUG GLITCH，門中走出了長大後的王小文...",
             openingDialogue: [
+              {
+                speaker: "父親 (開車)",
+                text: "「昨晚有因為準備考試熬夜嗎？」",
+                portrait: "doctor",
+              },
+              {
+                speaker: "可華 (打哈欠)",
+                text: "「讀書真的好累，班上同學都是學霸，時間總是不夠用，書好像永遠讀不完……為什麼要過這樣的生活？」",
+                portrait: "detective",
+              },
+              {
+                speaker: "父親",
+                text: "「學生只需要好好讀書，是很幸福的！等你出社會工作，才知道什麼叫壓力。好好用功讀書，考上大學，未來才會有好工作，才會有幸福的人生啊！」",
+                portrait: "doctor",
+              },
+              {
+                speaker: "可華 (心聲)",
+                text: "「爸說的那種幸福人生……真的是幸福嗎？我會不會，最後也變成和爸一樣……」",
+                portrait: "detective",
+              },
               {
                 speaker: "可華 (半夢半醒)",
                 text: "「怎麼這麼亮……到底是發生了什麼……啊！！」",
@@ -247,100 +267,228 @@ export const STORY_VOLUMES: VolumeData[] = [
   },
   {
     id: 2,
-    title: "第1篇：平行世界的交會",
-    subtitle: "重構高中記憶與夢想的形狀",
+    title: "五道門：生命教育的五把鑰匙",
+    subtitle: "穿越五道門，找回真正的自己",
     summary:
-      "穿過第一扇門後，可華與王小文來到了一個停滯在高中畢業典禮當天的平行世界。這裡每個人都戴著符合社會期待的面具，可華必須找回真正的夢想才能破局...",
-    coverBadge: "進階篇章",
+      "穿過折疊城市後，可華與小文正式站在五扇巨大鑰匙門前。每一道門背後都盤據著一種『迷惘化身』——牠們是思考的謬誤、認同的混亂、抉擇的兩難、時間的恐懼，以及紛擾的雜念。看清一種迷惘，就等於為自己的心靈多點亮一盞燈。",
+    coverBadge: "五門篇章",
     chapters: [
       {
         id: 201,
         volumeId: 2,
-        title: "第一章：面具與夢想",
-        subtitle: "畢業典禮上的真相",
+        title: "第一章：五把開啟幸福之門的鑰匙",
+        subtitle: "追求真理・認識自己・正確抉擇・創造意義・圓滿生命",
         levels: [
           {
             id: 6,
             volumeId: 2,
             chapterId: 201,
-            title: "面具下的告白",
-            subtitle: "平行宇宙邏輯辨析",
+            title: "消失的邏輯",
+            subtitle: "【第一道門】追求真理・大前提-小前提-結論密碼",
             staminaCost: 20,
             coinReward: 300,
-            clientName: "高中王小文",
+            clientName: "小文",
             narrative:
-              "畢業典禮禮堂內，所有學生都在照著既定劇本宣誓。只有可華發現禮堂後方的時間停滯了，他需要辨識出哪一位同班同學是真心想追求夢想。",
+              "在這道門後，有一個總是自相矛盾、卻堅信自己絕對正確的『詭辯人偶』。牠會用似是而非的推論迷惑所有靠近的人。可華，你能看穿牠話語中的謬誤，找出真正的邏輯嗎？",
             openingDialogue: [
               {
-                speaker: "高中王小文",
-                text: "「可華，大家都在說要做個穩定成功的大人，但你還記得我們當初說好的夢想嗎？」",
-                portrait: "client",
+                speaker: "小文",
+                text: "「詭辯人偶最擅長的，就是把似是而非的話說得理直氣壯。你要做的不是急著反駁，而是先看懂牠邏輯裡的破綻。」",
+                portrait: "charlotte",
               },
               {
-                speaker: "成年王小文",
-                text: "「這個世界會用『為你好』來磨平你的稜角，但只有你自己能選擇是否保持熾熱。」",
-                portrait: "charlotte",
+                speaker: "可華",
+                text: "「大前提、小前提、結論……原來思考本身，也可以是一件很有樂趣的事。」",
+                portrait: "detective",
               },
             ],
             puzzleConfig: {
               type: "logic",
               clues: [
-                "同學 A：說著最宏大的抱負，但只是為了獲得家長的誇獎與認同。",
-                "同学 B：私下偷偷練習繪畫直到深夜，即便沒有人看好依然堅持不懈。",
-                "同學 C：聽從安排選擇熱門科系，但眼神中充滿了茫然與倦怠。",
-                "真實價值：真正的熱情不需要別人的掌聲，而是在孤獨中依然閃光的堅持！",
+                "詭辯 A：「大家都這麼做，所以這麼做一定是對的。」——訴諸群眾的謬誤。",
+                "詭辯 B：「你反對我的意見，代表你人格有問題。」——人身攻擊的謬誤。",
+                "詭辯 C：「先觀察前提是否為真、推論過程是否合理，才能判斷結論是否成立。」——正確的批判性思考。",
+                "核心評判：真正的邏輯，不是誰講得大聲，而是前提為真、推論合理，結論才站得住腳！",
               ],
               options: [
                 {
-                  id: "b",
-                  label: "同學 B (堅守夢想者)",
+                  id: "c",
+                  label: "詭辯 C（正確的批判性思考）",
                   isCorrect: true,
-                  explanation: "正確！出於內心真愛的堅持，才是支撐生命的真正力量！",
+                  explanation:
+                    "正確！批判性思考不是急著反駁，而是先看懂對方邏輯裡的破綻，逐步檢驗前提與推論。",
                 },
                 {
                   id: "a",
-                  label: "同學 A",
+                  label: "詭辯 A（訴諸群眾）",
                   isCorrect: false,
-                  explanation: "錯誤。同學 A 只是為了滿足他人的期待。",
+                  explanation: "錯誤。「大家都這麼做」不代表這件事就是對的，這是常見的邏輯謬誤。",
                 },
                 {
-                  id: "c",
-                  label: "同學 C",
+                  id: "b",
+                  label: "詭辯 B（人身攻擊）",
                   isCorrect: false,
-                  explanation: "錯誤。同學 C 已失去了對未來的自主權。",
+                  explanation: "錯誤。針對「人」而非「論點」本身，無法真正反駁對方的說法。",
                 },
               ],
             },
             endingHook:
-              "時間重新流動！禮堂外的星空展現出絕美的光芒，通往第 7 關的通道開啟了。",
-            unlockedClueItem: "高中畢業合照",
+              "詭辯人偶的核心密碼鎖應聲彈開，牠的身影在邏輯的光芒中逐漸消散。小文微笑道：「你剛剛做的，就是課本裡說的『批判性思考』。」",
+            unlockedClueItem: "詭辯人偶的核心齒輪",
           },
           {
             id: 7,
             volumeId: 2,
             chapterId: 201,
-            title: "時空門的解鎖",
-            subtitle: "4 位數極限宇宙密碼",
-            staminaCost: 25,
-            coinReward: 350,
-            clientName: "成年王小文",
+            title: "鏡中的陌生人",
+            subtitle: "【第二道門】認識自己・自我認同密碼",
+            staminaCost: 20,
+            coinReward: 320,
+            clientName: "小文",
             narrative:
-              "面對第二扇門的巨大時間鎖，需要透過 4 位數密碼破譯出這個宇宙的時間頻率。",
+              "這道門裡住著『鏡影怪』，牠會模仿靠近牠的人，讓對方分不清『真正的自己』和『別人期待的自己』哪一個才是真的。要打敗鏡影怪，你得先破解牠身上的『自我認同密碼』——每一次錯誤的猜測，鏡影怪就會換一張新的臉。",
             openingDialogue: [
               {
-                speaker: "成年王小文",
-                text: "「這是第 1 篇的最後鎖扣，加油，可華！」",
+                speaker: "小文",
+                text: "「你有沒有發現，你每一次猜的密碼，其實都是在回答『我是誰』這個問題？」",
                 portrait: "charlotte",
+              },
+              {
+                speaker: "可華",
+                text: "「WUDQ VIRUP……這是我高中的字跡？認識自己，原來也需要不斷嘗試、不斷修正。」",
+                portrait: "detective",
+              },
+            ],
+            puzzleConfig: {
+              type: "cipher",
+              encryptedText: "WUDQ VIRUP",
+              solutionText: "TRANSFORM",
+              cipherHint: "提示：將每個字母往前移動 3 個位置 (W -> T, U -> R, D -> A...)",
+            },
+            endingHook:
+              "『TRANSFORM』(改變/轉化)！鏡影怪身上千百張模仿的臉孔逐一剝落，只留下可華自己真實的倒影。",
+            unlockedClueItem: "鏡影怪的破碎鏡片",
+          },
+          {
+            id: 8,
+            volumeId: 2,
+            chapterId: 201,
+            title: "天秤上的謊言",
+            subtitle: "【第三道門】正確抉擇・價值權重密碼",
+            staminaCost: 20,
+            coinReward: 340,
+            clientName: "小文",
+            narrative:
+              "『失衡天秤獸』盤據在這道門後，牠總是用「非黑即白」的方式逼迫路人做選擇，卻從不讓人看清選擇背後真正的價值衝突。唯有還原天秤獸身上被打亂的『價值權重密碼』，讓天秤重新平衡，牠才會現出原形。",
+            openingDialogue: [
+              {
+                speaker: "小文",
+                text: "「生活裡很多兩難，其實沒有絕對正確的答案，只有『你願意承擔哪一種選擇的後果』。」",
+                portrait: "charlotte",
+              },
+              {
+                speaker: "可華",
+                text: "「所以價值思辨，不是找標準答案，是學會為自己的選擇負責……讓我來找出天秤的平衡點！」",
+                portrait: "detective",
+              },
+            ],
+            puzzleConfig: {
+              type: "1a2b",
+              digitsCount: 3,
+              secretNumber: "319",
+            },
+            endingHook:
+              "天秤緩緩歸於平衡，失衡天秤獸發出一聲長嘯後化為光點消散。可華忽然明白：抉擇的重點從來不是對錯，而是願不願意承擔。",
+            unlockedClueItem: "失衡天秤獸的秤砣",
+          },
+          {
+            id: 9,
+            volumeId: 2,
+            chapterId: 201,
+            title: "時鐘裡的沙漏人",
+            subtitle: "【第四道門】創造意義・生命之謎密碼",
+            staminaCost: 25,
+            coinReward: 380,
+            clientName: "小文",
+            narrative:
+              "這是五道門裡最沉重的一道。『沙漏人』會不斷提醒靠近牠的人「時間所剩不多」，許多人因此陷入恐懼而逃避，卻忘了正視生命有限這件事，才能真正活得踏實。沙漏人的密碼會隨著倒數時間縮短而變化，你必須在牠徹底歸零前，找出屬於你自己的『生命之謎密碼』。",
+            openingDialogue: [
+              {
+                speaker: "小文",
+                text: "「還記得可華在車上想的那句話嗎？『我會不會也變成這樣』——其實答案，從來都不是命定的。」",
+                portrait: "charlotte",
+              },
+              {
+                speaker: "可華",
+                text: "「因為知道時間有限，所以更要想清楚，自己到底想怎麼活！」",
+                portrait: "detective",
               },
             ],
             puzzleConfig: {
               type: "1a2b",
               digitsCount: 4,
-              secretNumber: "6281",
+              secretNumber: "7042",
             },
             endingHook:
-              "門鎖解開！兩人攜手步入了更深層的多重宇宙世界...",
-            unlockedClueItem: "平行宇宙鑰匙卡",
+              "沙漏裡的沙粒停止了墜落，沙漏人卸下了滿身的恐懼，化為溫柔的微光融入可華心中。",
+            unlockedClueItem: "沙漏人的靜止沙漏",
+          },
+          {
+            id: 10,
+            volumeId: 2,
+            chapterId: 201,
+            title: "風暴中心的寂靜",
+            subtitle: "【第五道門】圓滿生命・冷靜推理",
+            staminaCost: 25,
+            coinReward: 400,
+            clientName: "小文",
+            narrative:
+              "最後一道門裡沒有兇惡的怪獸，只有一片喧鬧的『雜念風暴』。你要做的不是攻擊，而是靜下心，在混亂中找到那個安靜的核心。雜念風暴不會主動攻擊，但每一次心浮氣躁的錯誤嘗試，都會讓風暴變得更大。唯有沉穩、專注地推理，才能讓風暴逐漸平息。",
+            openingDialogue: [
+              {
+                speaker: "小文",
+                text: "「五道門都走完了。可華，你發現了嗎？其實從頭到尾，真正的謎底一直都是你自己。」",
+                portrait: "charlotte",
+              },
+              {
+                speaker: "可華",
+                text: "「所以『回家』的意思，不是回到過去，而是回到真正的自己。」",
+                portrait: "detective",
+              },
+            ],
+            puzzleConfig: {
+              type: "logic",
+              clues: [
+                "念頭 A：「越想越亂，乾脆什麼都不要想了。」——逃避型雜念。",
+                "念頭 B：「先深呼吸，把注意力放回眼前這一刻。」——專注當下的核心。",
+                "念頭 C：「一定是我不夠好，才會這麼亂。」——自我否定型雜念。",
+                "核心評判：真正讓風暴平息的，不是壓抑或苛責自己，而是溫柔而專注地回到當下！",
+              ],
+              options: [
+                {
+                  id: "b",
+                  label: "念頭 B（專注當下）",
+                  isCorrect: true,
+                  explanation:
+                    "正確！在混亂中找到安靜的核心，靠的不是逃避或自責，而是溫柔而專注地回到當下。",
+                },
+                {
+                  id: "a",
+                  label: "念頭 A（逃避型雜念）",
+                  isCorrect: false,
+                  explanation: "錯誤。逃避不會讓風暴平息，只會讓雜念持續累積。",
+                },
+                {
+                  id: "c",
+                  label: "念頭 C（自我否定型雜念）",
+                  isCorrect: false,
+                  explanation: "錯誤。苛責自己只會讓風暴變得更大，無法找回內心的平靜。",
+                },
+              ],
+            },
+            endingHook:
+              "雜念風暴逐漸平息，五道門在身後緩緩閉合，光芒散去。小文微笑道：「恭喜你，可華。五把鑰匙，你都拿到了。」她接著說：「你一定會長大、會疲憊、會有低潮。但現在的你，已經知道怎麼問對的問題、怎麼認識自己、怎麼做出無悔的選擇、怎麼面對有限的時間，也知道怎麼在風暴中找回平靜。這五道門，不會消失，它們會一直在你心裡，你隨時可以再打開。」畫面漸亮，回到現實中的可華——依然是高中生，坐在父親的車上。可華望向窗外，微笑著說：「爸，我以後想成為，一個知道自己為什麼而活的人。」",
+            unlockedClueItem: "五門事務所的畢業徽章",
           },
         ],
       },
@@ -352,7 +500,7 @@ export const DAILY_QUESTS: QuestItem[] = [
   {
     id: "q1",
     title: "探索初試身手",
-    desc: "順利破解 1 個多重宇宙篇章關卡",
+    desc: "順利通過 1 道門的考驗",
     rewardCoins: 100,
     rewardStamina: 30,
     requiredCompletedCount: 1,
@@ -360,15 +508,15 @@ export const DAILY_QUESTS: QuestItem[] = [
   {
     id: "q2",
     title: "打破輪迴宿命",
-    desc: "順利破解 3 個多重宇宙篇章關卡",
+    desc: "順利通過 3 道門的考驗",
     rewardCoins: 250,
     rewardStamina: 50,
     requiredCompletedCount: 3,
   },
   {
     id: "q3",
-    title: "人生探索所大師",
-    desc: "順利破解 5 個多重宇宙篇章關卡",
+    title: "五門事務所大師",
+    desc: "順利通過 5 道門的考驗，拿齊五把鑰匙",
     rewardCoins: 500,
     rewardStamina: 100,
     requiredCompletedCount: 5,

@@ -110,7 +110,7 @@ export const HubView: React.FC<HubViewProps> = ({
 
             {/* Quote */}
             <p className="text-base sm:text-base font-serif text-slate-300/90 leading-relaxed font-medium">
-              「想逃出去的話，跟我走。有問題，後面再說。」
+              「小文正在整理下一道門的線索。準備好面對下一個關卡了嗎？」
             </p>
 
             {/* Action Button */}

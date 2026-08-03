@@ -294,7 +294,7 @@ export default function App() {
         onOpenAICaseGenerator={() => setAiCaseModalOpen(true)}
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}
-        title="人生探索所"
+        title="五門事務所"
       />
 
       {/* Main View Switcher */}

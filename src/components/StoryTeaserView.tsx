@@ -81,7 +81,7 @@ export const StoryTeaserView: React.FC<StoryTeaserViewProps> = ({
 
       {/* Footer Copyright */}
       <div className="text-base font-serif text-slate-300">
-        © 2025 人生探索所 · 多重宇宙互動劇情遊戲
+        © 2025 五門事務所 · 穿越五道門，找回真正的自己
       </div>
     </div>
   );

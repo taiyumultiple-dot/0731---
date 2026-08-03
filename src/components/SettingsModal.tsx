@@ -111,7 +111,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         </div>
 
         <div className="text-base font-serif text-slate-300 text-center pt-2">
-          倫敦謎案簿 v2.5 · 1890 貝克街偵探記錄本
+          五門事務所 v1.0 · 生命教育探索記錄本
         </div>
       </div>
     </div>

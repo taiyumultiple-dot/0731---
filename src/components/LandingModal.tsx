@@ -30,13 +30,13 @@ export const LandingModal: React.FC<LandingModalProps> = ({ onStartGame }) => {
         {/* Title */}
         <div className="space-y-1 relative z-10">
           <div className="text-base font-mono tracking-[0.3em] font-bold text-purple-400 uppercase">
-            LIFE EXPLORATION STATION
+            FIVE DOORS AGENCY
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold font-serif bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent tracking-wider drop-shadow-md">
-            人生探索所
+            五門事務所
           </h1>
           <p className="text-base font-serif text-purple-200/70 pt-1">
-            生命教育互動探索 · 多重宇宙的抉擇
+            穿越五道門，找回真正的自己
           </p>
         </div>
 

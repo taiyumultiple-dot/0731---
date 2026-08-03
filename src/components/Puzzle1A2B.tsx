@@ -106,7 +106,7 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
     });
   };
 
-  // Ask AI Detective Charlotte for Hint
+  // Ask AI Guide Xiaowen for Hint
   const fetchAIHint = async () => {
     setLoadingHint(true);
     setAiHint(null);
@@ -115,12 +115,12 @@ export const Puzzle1A2B: React.FC<Puzzle1A2BProps> = ({ config, onSuccess }) => 
         .map((att) => `嘗試：${att.guess} -> ${att.aCount}A${att.bCount}B`)
         .join("\n");
 
-      const prompt = `你是一位 19 世紀倫敦偵探夏洛特。玩家正在解開一組 ${digitsCount} 位不重複數字密碼。
+      const prompt = `你是《五門事務所》裡的引路人「小文」，先一步穿越五道門、通曉生命智慧。可華正在破解一組 ${digitsCount} 位不重複數字密碼。
 正確答案是 ${secret}。
-玩家目前的嘗試紀錄如下：
+可華目前的嘗試紀錄如下：
 ${historyStr || "目前尚未有嘗試紀錄"}
 
-請用夏洛特偵探的語氣給予玩家一個關鍵邏輯提示（例如提示某個數字的位置、或者引導排除某個數），切記不要直接暴露出完整的 ${digitsCount} 位答案數值！字數在 60 字以內。`;
+請用小文溫柔而堅定的語氣給予可華一個關鍵邏輯提示（例如提示某個數字的位置、或者引導排除某個數），切記不要直接暴露出完整的 ${digitsCount} 位答案數值！字數在 60 字以內。`;
 
       const res = await fetch("/api/gemini/generate", {
         method: "POST",
@@ -264,12 +264,12 @@ ${historyStr || "目前尚未有嘗試紀錄"}
         </div>
       </div>
 
-      {/* AI Detective Charlotte Hint */}
+      {/* AI Guide Xiaowen Hint */}
       <div className="p-4 rounded-2xl border border-purple-500/30 bg-purple-950/30 space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-base font-bold font-serif text-purple-300">
             <Sparkles className="w-4 h-4 text-purple-400" />
-            <span>夏洛特助手線索指引</span>
+            <span>小文的線索指引</span>
           </div>
           <button
             onClick={fetchAIHint}
@@ -281,7 +281,7 @@ ${historyStr || "目前尚未有嘗試紀錄"}
             ) : (
               <HelpCircle className="w-3.5 h-3.5 text-purple-300" />
             )}
-            <span>{loadingHint ? "研判中..." : "求助夏洛特"}</span>
+            <span>{loadingHint ? "研判中..." : "求助小文"}</span>
           </button>
         </div>
 

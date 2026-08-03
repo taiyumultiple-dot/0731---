@@ -11,15 +11,14 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
   onStartGeneratedCase,
   onClose,
 }) => {
-  const [theme, setTheme] = useState("大英博物館古埃及詛咒與神秘失蹤案");
+  const [theme, setTheme] = useState("職場倦怠與自我認同的迷惘");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const presets = [
-    "大英博物館古埃及詛咒與神秘失蹤案",
-    "泰晤士河霧夜幽靈馬車與血印標記",
-    "大本鐘時間停擺與皇家金庫連環密碼案",
-    "海德公園密林中的鍊金術暗碼試探",
+    "職場倦怠與自我認同的迷惘",
+    "同儕壓力下的價值兩難",
+    "面對未知未來的恐懼與勇氣",
   ];
 
   const handleGenerateCase = async () => {
@@ -28,15 +27,15 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
     setErrorMsg(null);
 
     try {
-      const prompt = `你是一位 19 世紀維多利亞時代倫敦偵探小說家與遊戲設計師。請根據主題「${theme}」生成一個完整的《倫敦謎案簿》遊戲關卡。
+      const prompt = `你是《五門事務所》的劇情設計師，擅長將生命教育議題轉化為溫暖而發人深省的互動解謎故事。請根據主題「${theme}」，以引路人「小文」帶領主角「可華」穿越一道新的「迷惘之門」為背景，生成一個完整的遊戲關卡。
 請嚴格輸出符合以下 JSON 格式的內容，不要包含任何額外的 Markdown 或文字：
 
 {
-  "title": "關卡簡短標題",
-  "clientName": "委託人姓名與身分",
-  "narrative": "100字左右的案件背景敘述，充滿倫敦濃霧與神秘氛圍",
+  "title": "關卡簡短標題（呼應該主題的迷惘化身或困境）",
+  "clientName": "委託人姓名與身分（通常是小文）",
+  "narrative": "100字左右的案件背景敘述，描述門後的迷惘化身與可華需要面對的心結",
   "secretNumber": "一個3位不重複數字（例如 591）",
-  "endingHook": "破案後的驚天故事伏筆（50字左右）",
+  "endingHook": "解開迷惘後的成長體悟與伏筆（50字左右）",
   "unlockedClueItem": "解開案件獲得的關鍵道具名稱"
 }`;
 
@@ -63,21 +62,21 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
         id: Date.now(),
         volumeId: 999,
         chapterId: 999,
-        title: parsed.title || "AI 懸案：" + theme.slice(0, 8),
-        subtitle: "Gemini 智囊即時生成 3 位數密碼案",
+        title: parsed.title || "新的迷惘之門：" + theme.slice(0, 8),
+        subtitle: "Gemini 即時生成 3 位數密碼關卡",
         staminaCost: 10,
         coinReward: 200,
-        clientName: parsed.clientName || "神秘委託人",
-        narrative: parsed.narrative || "濃霧瀰漫的倫敦街頭發生命案...",
+        clientName: parsed.clientName || "小文",
+        narrative: parsed.narrative || "一道全新的迷惘之門在可華面前展開...",
         openingDialogue: [
           {
-            speaker: parsed.clientName || "神秘委託人",
-            text: `「偵探先生！請幫幫我！${theme}引發了巨大的恐慌！」`,
+            speaker: parsed.clientName || "小文",
+            text: `「可華，這道門裡藏著關於『${theme}』的迷惘，準備好面對了嗎？」`,
             portrait: "client",
           },
           {
-            speaker: "夏洛特",
-            text: "「冷靜下來，這現場遺留的數字密碼暗示著灰印會的爪牙曾來過這裡。」",
+            speaker: "小文",
+            text: "「冷靜下來，門上遺留的數字密碼，是通往真相的第一道線索。」",
             portrait: "charlotte",
           },
         ],
@@ -115,10 +114,10 @@ export const AIGeneratedCaseModal: React.FC<AIGeneratedCaseModalProps> = ({
           </div>
           <div>
             <h3 className="text-base font-serif font-bold text-purple-100">
-              Gemini AI 無限懸案生成器
+              Gemini AI 無限迷惘之門生成器
             </h3>
             <p className="text-base text-purple-300/70">
-              輸入任意主題，讓 Gemini 生成獨一無二的倫敦謎案與 1A2B 破譯關卡
+              輸入任意主題，讓 Gemini 生成獨一無二的迷惘之門與 1A2B 破譯關卡
             </p>
           </div>
         </div>

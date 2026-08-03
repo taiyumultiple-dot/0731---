@@ -22,7 +22,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   onOpenAICaseGenerator,
   soundEnabled,
   onToggleSound,
-  title = "人生探索所",
+  title = "五門事務所",
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full px-4 py-3 border-b border-indigo-500/20 bg-slate-950/85 backdrop-blur-xl shadow-lg text-slate-100">

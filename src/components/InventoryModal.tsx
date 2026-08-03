@@ -45,7 +45,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                 人物圖鑑與時空線索
               </h3>
               <p className="text-base text-purple-200/70">
-                多重宇宙的人物關係與探索到的關鍵線索
+                這裡收錄你在五道門旅程中遇見、看清的每一個「迷惘化身」——看清一個迷惘，就等於為自己的心靈多點亮一盞燈。
               </p>
             </div>
           </div>
