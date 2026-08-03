@@ -1,6 +1,5 @@
 import React from "react";
 import { ChevronLeft, Heart, Sparkles, Volume2, Lock, CheckCircle, DoorClosed } from "lucide-react";
-import { STORY_VOLUMES } from "../data/storyData";
 import { LevelData } from "../types";
 import { soundFx } from "../utils/audio";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
@@ -8,6 +7,8 @@ import { IMG_FIVEDOORS } from "../data/gameBanners";
 import { IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 
 interface FiveDoorsViewProps {
+  doors: LevelData[];
+  guideText?: string;
   completedLevelIds: number[];
   onSelectLevel: (level: LevelData) => void;
   onBack: () => void;
@@ -16,14 +17,14 @@ interface FiveDoorsViewProps {
 }
 
 export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
+  doors,
+  guideText,
   completedLevelIds,
   onSelectLevel,
   onBack,
   stamina,
   coins,
 }) => {
-  const chapter0 = STORY_VOLUMES[0].chapters[0];
-  const doors = chapter0.levels;
 
   const doorGlowStyles = [
     "from-purple-600/80 via-purple-900/90 to-indigo-950 border-purple-400 text-purple-200 shadow-purple-500/50",
@@ -149,7 +150,7 @@ export const FiveDoorsView: React.FC<FiveDoorsViewProps> = ({
                 <span className="text-base font-mono text-purple-400">~||~</span>
               </div>
               <p className="text-base font-serif text-purple-100 font-medium">
-                來吧。我們得穿過這五扇門，才能回家。
+                {guideText || "來吧。我們得穿過這五扇門，才能回家。"}
               </p>
             </div>
           </div>

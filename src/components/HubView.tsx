@@ -51,6 +51,23 @@ export const HubView: React.FC<HubViewProps> = ({
   const allLevels = STORY_VOLUMES.flatMap((v) =>
     v.chapters.flatMap((c) => c.levels)
   );
+
+  // 判斷第0篇（Volume 1）是否已全部完成，決定「進入篇章」要去哪
+  const volume1LevelIds = STORY_VOLUMES[0].chapters.flatMap((c) =>
+    c.levels.map((l) => l.id)
+  );
+  const isVolume1Complete = volume1LevelIds.every((id) =>
+    userProgress.completedLevelIds.includes(id)
+  );
+  const nextVolume = isVolume1Complete ? STORY_VOLUMES[1] : STORY_VOLUMES[0];
+
+  const handleEnterChapter = () => {
+    if (isVolume1Complete && STORY_VOLUMES[1]) {
+      onSelectVolume(STORY_VOLUMES[1]);
+    } else {
+      onNavigateToFiveDoors();
+    }
+  };
   const currentLevel =
     allLevels.find((l) => l.id === userProgress.currentLevelId) ||
     allLevels[0];
@@ -159,17 +176,24 @@ export const HubView: React.FC<HubViewProps> = ({
         {/* Top Header Row */}
         <div className="flex items-center justify-between border-b border-indigo-500/20 pb-4">
           <h2 className="text-xl sm:text-2xl font-extrabold font-serif bg-gradient-to-r from-amber-100 via-indigo-100 to-purple-200 bg-clip-text text-transparent">
-            第0篇：多重宇宙的抉擇
+            {nextVolume.title}
           </h2>
 
           <div className="px-3 py-1 rounded-full text-base font-mono font-bold bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 shadow-inner">
-            進度：{completedCount} / 5
+            進度：
+            {
+              nextVolume.chapters
+                .flatMap((c) => c.levels)
+                .filter((l) => userProgress.completedLevelIds.includes(l.id)).length
+            }
+            {" / "}
+            {nextVolume.chapters.flatMap((c) => c.levels).length}
           </div>
         </div>
 
         {/* Subtitle */}
         <p className="text-base sm:text-base font-serif text-slate-300/80 italic font-medium">
-          在迷惘與輪迴之間，找到屬於自己的選擇。
+          {nextVolume.subtitle}
         </p>
 
         {/* Three Feature Nodes */}
@@ -223,7 +247,7 @@ export const HubView: React.FC<HubViewProps> = ({
         {/* Primary Enter Chapter Button */}
         <div className="pt-2 space-y-3">
           <button
-            onClick={onNavigateToFiveDoors}
+            onClick={handleEnterChapter}
             className="w-full py-4 px-6 rounded-2xl font-serif font-bold text-base text-amber-100 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 hover:from-indigo-800 hover:to-purple-800 border-2 border-indigo-500/40 shadow-xl shadow-indigo-950/60 transition-all flex items-center justify-center gap-2 group active:scale-98"
           >
             <span>進入篇章</span>

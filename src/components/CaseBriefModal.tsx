@@ -19,13 +19,24 @@ export const CaseBriefModal: React.FC<CaseBriefModalProps> = ({
 }) => {
   const [expandedDetails, setExpandedDetails] = useState(true);
 
+  const puzzleTypeLabel: Record<string, string> = {
+    "1a2b": `${level.puzzleConfig.digitsCount || 3} 位數密碼推理`,
+    cipher: "暗號解密",
+    logic: "邏輯推理選擇",
+    syllogism: "邏輯排序推理",
+    balance: "天秤配重推理",
+    pattern: "規律推理",
+  };
+
+  const firstLine = level.openingDialogue?.[0]?.text;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto">
       <div className="relative w-full max-w-xl p-6 rounded-3xl border border-purple-500/30 bg-slate-900/95 space-y-5 shadow-2xl my-8">
         {/* Top Badge */}
         <div className="flex items-center justify-between text-base font-serif">
           <span className="px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30 font-mono font-bold">
-            第0篇｜多重宇宙的抉擇｜關卡前置
+            {level.subtitle}
           </span>
         </div>
 
@@ -46,18 +57,18 @@ export const CaseBriefModal: React.FC<CaseBriefModalProps> = ({
 
           <div className="space-y-1 flex-1">
             <p className="text-base sm:text-base font-serif text-purple-100 leading-relaxed font-bold">
-              {level.clientName}：『破解這關的時空密碼鎖，從平行世界中鎖定打破輪迴的關鍵鑰匙！』
+              {level.clientName}
+              {firstLine ? `：『${firstLine}』` : "：委託你解開這道門的謎題。"}
             </p>
           </div>
         </div>
 
         {/* Chapter Metadata */}
         <div className="space-y-1 text-base font-serif text-purple-300/90 border-t border-b border-purple-500/20 py-3">
-          <div className="flex items-center justify-between">
-            <span>第一章：辦公室的 GLITCH 與五扇門 | 第 {level.id}/5 關</span>
-          </div>
           <div className="flex items-center gap-4 pt-1">
-            <span className="text-purple-200 font-bold">{level.puzzleConfig.digitsCount || 3} 位數時空密碼</span>
+            <span className="text-purple-200 font-bold">
+              {puzzleTypeLabel[level.puzzleConfig.type] || "推理謎題"}
+            </span>
             <span className="text-purple-400 font-mono flex items-center gap-1 font-bold">
               <Heart className="w-3.5 h-3.5 fill-purple-400" /> 消耗 {level.staminaCost} 心力
             </span>
@@ -84,7 +95,7 @@ export const CaseBriefModal: React.FC<CaseBriefModalProps> = ({
             <div className="p-4 rounded-2xl bg-slate-950/90 border border-purple-500/20 text-base font-serif text-purple-200/90 leading-relaxed space-y-3 max-h-60 overflow-y-auto custom-scrollbar">
               <p>{level.narrative}</p>
               <p className="text-slate-200 italic pt-1 border-t border-purple-500/10">
-                進入關卡後觀看故事對話演繹，隨後開啟密碼推算解密。若想選擇其他關卡，點擊下方「返回章節」即可。
+                進入關卡後觀看故事對話演繹，隨後開啟推理解謎。若想選擇其他關卡，點擊下方「返回章節」即可。
               </p>
             </div>
           )}

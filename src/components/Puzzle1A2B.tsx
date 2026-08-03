@@ -164,6 +164,8 @@ ${historyStr || "目前尚未有嘗試紀錄"}
     }
   };
 
+  const [showTutorial, setShowTutorial] = useState(false);
+
   return (
     <div className="space-y-6 max-w-xl mx-auto">
       {/* Target Title & Prompt */}
@@ -175,6 +177,51 @@ ${historyStr || "目前尚未有嘗試紀錄"}
         <p className="text-base text-amber-200/80 leading-relaxed">
           玩法：輸入 {digitsCount} 位不重複數字。<b>A</b> 代表數字與位置均正確，<b>B</b> 代表數字正確但位置錯誤。
         </p>
+        <button
+          onClick={() => setShowTutorial((v) => !v)}
+          className="text-base font-serif text-amber-300 hover:text-amber-200 underline underline-offset-2"
+        >
+          {showTutorial ? "收起範例 ▲" : "還是看不懂？看範例教學 ▼"}
+        </button>
+
+        {showTutorial && (
+          <div className="mt-2 p-3.5 rounded-2xl border border-amber-500/20 bg-slate-950/80 text-left space-y-2.5 animate-in fade-in duration-300">
+            <p className="text-base text-amber-100">
+              假設密碼是三位數，你完全不知道答案，先隨便猜一組試試水溫：
+            </p>
+            <div className="flex items-center gap-2 font-mono text-base">
+              <span className="px-2 py-1 rounded-lg bg-slate-900 text-amber-200 border border-amber-500/20">
+                你猜：1 2 3
+              </span>
+              <span className="text-slate-300">→</span>
+              <span className="px-2 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+                1A
+              </span>
+              <span className="px-2 py-1 rounded-lg bg-amber-950 text-amber-300 border border-amber-500/30">
+                1B
+              </span>
+            </div>
+            <p className="text-base text-slate-200 leading-relaxed">
+              代表：1、2、3 這三個數字裡，有 <b>1 個</b>數字「位置也對」（1A），有 <b>1 個</b>數字「有出現在密碼裡，但位置不對」（1B），另外 1 個數字完全不在密碼裡。
+            </p>
+            <p className="text-base text-amber-100">再猜第二組，縮小範圍：</p>
+            <div className="flex items-center gap-2 font-mono text-base">
+              <span className="px-2 py-1 rounded-lg bg-slate-900 text-amber-200 border border-amber-500/20">
+                你猜：1 4 2
+              </span>
+              <span className="text-slate-300">→</span>
+              <span className="px-2 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-500/30">
+                2A
+              </span>
+              <span className="px-2 py-1 rounded-lg bg-amber-950 text-amber-300 border border-amber-500/30">
+                0B
+              </span>
+            </div>
+            <p className="text-base text-slate-200 leading-relaxed">
+              換掉一個數字（3→4）、對調了位置（2 從第三位換到第三位不變），結果 A 從 1 變 2，代表新猜的組合裡有更多位置對了。像這樣每猜一次都在收集線索，慢慢就能推出正確答案——不用死記硬背，跟著 A/B 的變化調整就好。
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Reasoning Power Bar */}

@@ -423,6 +423,7 @@ export default function App() {
 
         {currentView === "five-doors" && (
           <FiveDoorsView
+            doors={STORY_VOLUMES[0].chapters[0].levels}
             completedLevelIds={userProgress.completedLevelIds}
             onSelectLevel={handleOpenCaseDetail}
             onBack={() => goTo("hub")}
