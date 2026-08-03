@@ -4,6 +4,7 @@ import { Puzzle1A2B } from "./Puzzle1A2B";
 import { PuzzleCipher } from "./PuzzleCipher";
 import { PuzzleLogic } from "./PuzzleLogic";
 import { PuzzleSyllogism } from "./PuzzleSyllogism";
+import { PuzzleBalance } from "./PuzzleBalance";
 import { DialogueOverlay } from "./DialogueOverlay";
 import { FileText, MessageSquare, Sparkles } from "lucide-react";
 
@@ -81,6 +82,10 @@ export const PuzzleView: React.FC<PuzzleViewProps> = ({
 
       {level.puzzleConfig.type === "syllogism" && (
         <PuzzleSyllogism config={level.puzzleConfig} onSuccess={onSuccess} />
+      )}
+
+      {level.puzzleConfig.type === "balance" && (
+        <PuzzleBalance config={level.puzzleConfig} onSuccess={onSuccess} />
       )}
     </div>
   );

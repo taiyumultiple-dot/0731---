@@ -387,19 +387,27 @@ export const STORY_VOLUMES: VolumeData[] = [
             openingDialogue: [
               {
                 speaker: "小文",
-                text: "「生活裡很多兩難，其實沒有絕對正確的答案，只有『你願意承擔哪一種選擇的後果』。」",
+                text: "「生活裡有很多兩難的價值，其實沒有絕對正確的答案，只有『你願意承擔哪一種選擇的後果』。」",
                 portrait: "charlotte",
               },
               {
                 speaker: "可華",
-                text: "「所以價值思辨，不是找標準答案，是學會為自己的選擇負責……讓我來找出天秤的平衡點！」",
+                text: "「所以思辨，不是找標準答案，是學會為自己的選擇負責……讓我來找出天秤的平衡點！」",
                 portrait: "detective",
               },
             ],
             puzzleConfig: {
-              type: "1a2b",
-              digitsCount: 3,
-              secretNumber: "319",
+              type: "balance",
+              balanceIntro:
+                "天秤獸打亂了『穩定』與『熱情』兩種人生考量的權重。點選卡片放上左右兩側，直到兩邊的權重總和相等。",
+              balanceChips: [
+                { id: "c1", label: "經濟保障：穩定收入帶來的安全感", weight: 5 },
+                { id: "c2", label: "家人期待：不讓家人擔心的責任感", weight: 3 },
+                { id: "c3", label: "社會眼光：符合「正常」人生的壓力", weight: 2 },
+                { id: "c4", label: "自我實現：做自己真正喜歡的事", weight: 4 },
+                { id: "c5", label: "成長空間：持續學習與挑戰自己", weight: 3 },
+                { id: "c6", label: "熱情動力：每天醒來都想去做的事", weight: 3 },
+              ],
             },
             endingHook:
               "天秤緩緩歸於平衡，失衡天秤獸發出一聲長嘯後化為光點消散。可華忽然明白：抉擇的重點從來不是對錯，而是願不願意承擔。",

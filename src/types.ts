@@ -1,4 +1,10 @@
-export type PuzzleType = "1a2b" | "cipher" | "logic" | "pattern" | "syllogism";
+export type PuzzleType = "1a2b" | "cipher" | "logic" | "pattern" | "syllogism" | "balance";
+
+export interface BalanceChip {
+  id: string;
+  label: string;
+  weight: number;
+}
 
 export interface SyllogismStatement {
   id: string;
@@ -31,6 +37,9 @@ export interface PuzzleGameConfig {
   // For Syllogism (大前提-小前提-結論 排序 + 排除謬誤)
   syllogismStatements?: SyllogismStatement[];
   syllogismIntro?: string;
+  // For Balance (天秤配重)
+  balanceChips?: BalanceChip[];
+  balanceIntro?: string;
 }
 
 export interface LevelData {
