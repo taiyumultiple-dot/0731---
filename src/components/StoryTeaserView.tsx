@@ -18,9 +18,9 @@ export const StoryTeaserView: React.FC<StoryTeaserViewProps> = ({
     <div className="relative min-h-[80vh] flex flex-col items-center justify-between py-6 px-4 text-center max-w-xl mx-auto space-y-6">
       {videoOpen && (
         <VideoPlayerModal
-          videoUrl="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          videoUrl="/assets/videos/chapter0_intro.mp4"
           posterUrl={IMG_TEASER}
-          title="第0篇：多重宇宙的抉擇（示範）"
+          title="第0篇：多重宇宙的抉擇"
           onClose={() => setVideoOpen(false)}
         />
       )}

@@ -43,7 +43,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
         </div>
 
         <p className="text-base text-center text-slate-300">
-          這是示範用的公開測試影片。等你把正式動畫給我，我會直接替換成真正的內容。
+          第0篇開場動畫，收看完畢後可以直接關閉，回到冒險旅程。
         </p>
       </div>
     </div>
