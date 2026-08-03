@@ -1,6 +1,7 @@
 import React from "react";
 import { Settings, Volume2, VolumeX, ShieldCheck, RefreshCw, X, LogOut, Info } from "lucide-react";
 import { UserProgress } from "../types";
+import { IMG_KEHUA_ACTION } from "../data/characterFullBody";
 
 interface SettingsModalProps {
   userProgress: UserProgress;
@@ -21,7 +22,15 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-      <div className="relative w-full max-w-md p-6 rounded-3xl border border-amber-500/30 bg-slate-900/95 space-y-5 shadow-2xl">
+      <div className="relative w-full max-w-md p-6 rounded-3xl border border-amber-500/30 bg-slate-900/95 space-y-5 shadow-2xl overflow-hidden">
+        {/* Page Background Theme */}
+        <img
+          src={IMG_KEHUA_ACTION}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.08] pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/95 to-slate-900 pointer-events-none" />
+        <div className="relative space-y-5">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-amber-500/20">
           <div className="flex items-center gap-2">
@@ -112,6 +121,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
         <div className="text-base font-serif text-slate-300 text-center pt-2">
           五門事務所 v1.0 · 生命教育探索記錄本
+        </div>
         </div>
       </div>
     </div>

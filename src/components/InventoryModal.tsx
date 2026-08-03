@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { X, User, Sparkles, Ghost } from "lucide-react";
 import { IMG_KEHUA_PORTRAIT, IMG_WENWEN_PORTRAIT } from "../data/characterPortraits";
 import { MONSTERS } from "../data/monsterData";
+import { IMG_DUO } from "../data/characterFullBody";
 
 interface InventoryModalProps {
   unlockedClues: string[];
@@ -37,7 +38,15 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in">
-      <div className="relative w-full max-w-md rounded-3xl border border-purple-500/30 bg-slate-900 shadow-2xl p-6 text-slate-100 space-y-4 my-8">
+      <div className="relative w-full max-w-md rounded-3xl border border-purple-500/30 bg-slate-900 shadow-2xl p-6 text-slate-100 space-y-4 my-8 overflow-hidden">
+        {/* Page Background Theme */}
+        <img
+          src={IMG_DUO}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/95 to-slate-900 pointer-events-none" />
+        <div className="relative space-y-4">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-purple-500/20">
           <div className="flex items-center gap-2">
@@ -188,6 +197,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
             )}
           </div>
         )}
+        </div>
       </div>
     </div>
   );

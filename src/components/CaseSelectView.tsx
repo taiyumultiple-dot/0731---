@@ -1,6 +1,7 @@
 import React from "react";
 import { VolumeData, LevelData, UserProgress } from "../types";
 import { CheckCircle2, Play, Lock, Zap, Coins, HelpCircle, ChevronRight } from "lucide-react";
+import { IMG_FIVEDOORS } from "../data/gameBanners";
 
 interface CaseSelectViewProps {
   volume: VolumeData;
@@ -16,7 +17,17 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
   onBack,
 }) => {
   return (
-    <div className="space-y-6 max-w-4xl mx-auto py-2">
+    <div className="relative space-y-6 max-w-4xl mx-auto py-2">
+      {/* Page Background Theme */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <img
+          src={IMG_FIVEDOORS}
+          alt=""
+          className="w-full h-full object-cover opacity-[0.12] blur-[1px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950" />
+      </div>
+
       {/* Volume Header */}
       <div className="p-6 rounded-3xl border border-amber-500/30 bg-slate-900/90 space-y-2 shadow-2xl">
         <div className="inline-block px-3 py-1 rounded-full text-base font-mono font-bold bg-amber-950 text-amber-300 border border-amber-500/30">

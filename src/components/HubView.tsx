@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { CHARACTER_IMAGES } from "../data/characterAssets";
 import { IMG_WENWEN_FULL } from "../data/characterFullBody";
+import { IMG_HUB } from "../data/gameBanners";
 
 interface HubViewProps {
   userProgress: UserProgress;
@@ -56,6 +57,16 @@ export const HubView: React.FC<HubViewProps> = ({
 
   return (
     <div className="space-y-6 max-w-2xl mx-auto pb-24 relative z-10">
+      {/* Page Background Theme */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <img
+          src={IMG_HUB}
+          alt=""
+          className="w-full h-full object-cover opacity-[0.10] blur-[1px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/92 to-slate-950" />
+      </div>
+
       {/* Quick Access Screen Switcher Pills */}
       <div className="flex items-center justify-center gap-2 overflow-x-auto pb-1 text-base font-serif font-bold text-purple-200 custom-scrollbar">
         <button

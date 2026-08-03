@@ -2,6 +2,7 @@ import React from "react";
 import { X, Award, CheckCircle2, Coins, Zap, CalendarCheck, Radar, Gift } from "lucide-react";
 import { DAILY_QUESTS } from "../data/storyData";
 import { UserProgress } from "../types";
+import { IMG_KEHUA_CALL } from "../data/characterFullBody";
 
 interface QuestModalProps {
   userProgress: UserProgress;
@@ -28,6 +29,14 @@ export const QuestModal: React.FC<QuestModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-300">
       <div className="relative w-full max-w-lg rounded-3xl border border-amber-500/30 bg-slate-900 shadow-2xl p-6 text-slate-100 space-y-5 max-h-[90vh] overflow-y-auto custom-scrollbar">
+        {/* Page Background Theme */}
+        <img
+          src={IMG_KEHUA_CALL}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.08] pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/95 to-slate-900 pointer-events-none" />
+        <div className="relative space-y-5">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-amber-500/20">
           <div className="flex items-center gap-2">
@@ -179,6 +188,7 @@ export const QuestModal: React.FC<QuestModalProps> = ({
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </div>
