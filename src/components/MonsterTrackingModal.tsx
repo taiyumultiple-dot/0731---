@@ -267,7 +267,7 @@ export const MonsterTrackingModal: React.FC<MonsterTrackingModalProps> = ({
               </div>
             )}
 
-            <p className="text-base text-center text-slate-300/60 flex items-center justify-center gap-1">
+            <p className="text-base text-center text-slate-200 flex items-center justify-center gap-1">
               <Sparkles className="w-3.5 h-3.5" /> A 代表位置正確，B 代表數字存在但位置錯誤
             </p>
           </>
