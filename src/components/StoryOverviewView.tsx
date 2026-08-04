@@ -1,10 +1,11 @@
-import React from "react";
-import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass, MessageCircle } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { ChevronLeft, Heart, Sparkles, Bus, Zap, Briefcase, Monitor, DoorClosed, CheckCircle2, Building2, RotateCcw, Compass, MessageCircle, Volume2, VolumeX } from "lucide-react";
 import { IMG_DUO } from "../data/characterFullBody";
 
 interface StoryOverviewViewProps {
   onStartExploration: () => void;
   onBackToChapters: () => void;
+  onVideoEnd: () => void;
   stamina: number;
   coins: number;
 }
@@ -12,9 +13,19 @@ interface StoryOverviewViewProps {
 export const StoryOverviewView: React.FC<StoryOverviewViewProps> = ({
   onStartExploration,
   onBackToChapters,
+  onVideoEnd,
   stamina,
   coins,
 }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
   const storyTimeline = [
     {
       icon: Bus,
@@ -90,32 +101,47 @@ export const StoryOverviewView: React.FC<StoryOverviewViewProps> = ({
         了解篇章全貌，找回探索的初心。
       </p>
 
-      {/* Hero Header Box with Artwork (Kehua & Xiaowen High School Duo) */}
-      <div className="relative p-6 sm:p-7 rounded-3xl border-2 border-indigo-500/30 bg-slate-900/90 shadow-2xl overflow-hidden backdrop-blur-xl">
-        <div className="flex flex-col sm:flex-row items-center gap-5 relative z-10 text-left">
-          {/* Left Text */}
-          <div className="space-y-2 flex-1">
-            <div className="inline-block px-3 py-1 rounded-full text-base font-mono font-bold text-purple-300 bg-purple-950/80 border border-purple-500/30">
-              第 0 篇
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-serif bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent">
-              多重宇宙的抉擇
-            </h2>
-            <p className="text-base font-serif text-slate-300/80">
-              神秘通話者發來了一個選項。
-            </p>
-          </div>
-
-          {/* Right Anime Art (Kehua & Xiaowen) */}
-          <div className="w-40 h-48 rounded-2xl border border-purple-500/30 overflow-hidden shrink-0 shadow-xl bg-slate-950">
-            <img
-              src={IMG_DUO}
-              alt="可華與小文"
-              className="w-full h-full object-contain object-top opacity-95 filter contrast-110"
-            />
+      {/* Hero Header Box with Autoplay Opening Animation */}
+      <div className="relative rounded-3xl border-2 border-indigo-500/30 bg-slate-900/90 shadow-2xl overflow-hidden backdrop-blur-xl">
+        {/* Full-Width Autoplay Video */}
+        <div className="relative w-full h-[300px] sm:h-[420px] bg-slate-950 group">
+          <video
+            ref={videoRef}
+            src="/assets/videos/chapter0_intro.mp4"
+            poster={IMG_DUO}
+            autoPlay
+            muted={muted}
+            playsInline
+            onEnded={onVideoEnd}
+            className="w-full h-full object-contain bg-black"
+          />
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-3 right-3 p-2 rounded-full bg-slate-950/80 border border-purple-400/40 text-purple-200 opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+          <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-base font-serif font-bold bg-slate-950/80 text-purple-200 border border-purple-400/30">
+            播放中，結束後自動進入旅程……
           </div>
         </div>
+
+        <div className="p-6 sm:p-7 space-y-2 text-left">
+          <div className="inline-block px-3 py-1 rounded-full text-base font-mono font-bold text-purple-300 bg-purple-950/80 border border-purple-500/30">
+            第 0 篇
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-serif bg-gradient-to-r from-amber-100 via-purple-100 to-indigo-200 bg-clip-text text-transparent">
+            多重宇宙的抉擇
+          </h2>
+          <p className="text-base font-serif text-slate-300/80">
+            神秘通話者發來了一個選項。
+          </p>
+        </div>
       </div>
+
+      <p className="text-base text-center text-slate-300/70 -mt-3">
+        動畫播放結束後會自動進入對話與關卡，也可以先點下方「開始探索」直接跳過。
+      </p>
 
       {/* Main Story Summary Container (Matching Screenshot 2) */}
       <div className="p-6 rounded-3xl border border-indigo-500/30 bg-slate-900/90 shadow-2xl space-y-5 text-left backdrop-blur-xl">

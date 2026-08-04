@@ -59,15 +59,16 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
                   level.id === 1 ||
                   userProgress.completedLevelIds.includes(level.id - 1) ||
                   isCompleted;
+                const isSelectable = isUnlocked && !level.comingSoon;
 
                 return (
                   <div
                     key={level.id}
                     onClick={() => {
-                      if (isUnlocked) onSelectLevel(level);
+                      if (isSelectable) onSelectLevel(level);
                     }}
                     className={`p-5 rounded-2xl border transition-all ${
-                      isUnlocked
+                      isSelectable
                         ? "border-amber-500/30 bg-slate-900/80 hover:bg-slate-900 hover:border-amber-400 cursor-pointer shadow-lg hover:shadow-amber-500/10"
                         : "border-slate-800 bg-slate-950/60 opacity-60 cursor-not-allowed"
                     }`}
@@ -82,7 +83,11 @@ export const CaseSelectView: React.FC<CaseSelectViewProps> = ({
                         </h4>
                       </div>
 
-                      {isCompleted ? (
+                      {level.comingSoon ? (
+                        <span className="px-2 py-0.5 rounded-full text-base font-serif font-bold bg-purple-950 text-purple-300 border border-purple-500/30">
+                          敬請期待
+                        </span>
+                      ) : isCompleted ? (
                         <span className="px-2 py-0.5 rounded-full text-base font-serif font-bold bg-emerald-950 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" /> 已破解
                         </span>

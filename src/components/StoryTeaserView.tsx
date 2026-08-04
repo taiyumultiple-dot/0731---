@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { Sparkles, ChevronRight, Compass, PlayCircle } from "lucide-react";
+import React from "react";
+import { Sparkles, ChevronRight, Compass } from "lucide-react";
 import { IMG_TEASER } from "../data/gameBanners";
-import { VideoPlayerModal } from "./VideoPlayerModal";
 
 interface StoryTeaserViewProps {
   onStartExploration: () => void;
@@ -12,30 +11,10 @@ export const StoryTeaserView: React.FC<StoryTeaserViewProps> = ({
   onStartExploration,
   onContinueJourney,
 }) => {
-  const [videoOpen, setVideoOpen] = useState(false);
-
   return (
     <div className="relative min-h-[80vh] flex flex-col items-center justify-between py-6 px-4 text-center max-w-xl mx-auto space-y-6">
-      {videoOpen && (
-        <VideoPlayerModal
-          videoUrl="/assets/videos/chapter0_intro.mp4"
-          posterUrl={IMG_TEASER}
-          title="第0篇：多重宇宙的抉擇"
-          onClose={() => setVideoOpen(false)}
-        />
-      )}
-
       {/* Multiverse Memory Shards Artwork Container */}
       <div className="relative w-full h-[460px] sm:h-[520px] rounded-3xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-950 group">
-        {/* Play Animation Button */}
-        <button
-          onClick={() => setVideoOpen(true)}
-          className="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-base font-serif font-bold text-purple-100 bg-slate-950/80 backdrop-blur-md border border-purple-400/40 hover:bg-purple-900/60 transition-all active:scale-95"
-        >
-          <PlayCircle className="w-4 h-4" />
-          <span>播放動畫</span>
-        </button>
-
         {/* Floating Multiverse Anime Art */}
         <img
           src={IMG_TEASER}

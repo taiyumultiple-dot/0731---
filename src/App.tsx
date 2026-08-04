@@ -406,6 +406,10 @@ export default function App() {
           <StoryOverviewView
             onStartExploration={() => goTo("choice-moment")}
             onBackToChapters={() => goTo("five-doors")}
+            onVideoEnd={() => {
+              const firstLevel = STORY_VOLUMES[0].chapters[0].levels[0];
+              handleStartInvestigation(firstLevel);
+            }}
             stamina={userProgress.stamina}
             coins={userProgress.coins}
           />

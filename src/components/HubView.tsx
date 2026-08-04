@@ -14,6 +14,14 @@ import {
 import { IMG_WENWEN_FULL } from "../data/characterFullBody";
 import { IMG_HUB } from "../data/gameBanners";
 
+const FIVE_DOORS_ROADMAP = [
+  { unit: "第一道門・追求真理", title: "消失的邏輯", monster: "詭辯人偶" },
+  { unit: "第二道門・認識自己", title: "鏡中的陌生人", monster: "鏡影怪" },
+  { unit: "第三道門・正確抉擇", title: "天秤上的謊言", monster: "失衡天秤獸" },
+  { unit: "第四道門・創造意義", title: "時鐘裡的沙漏人", monster: "沙漏人" },
+  { unit: "第五道門・圓滿生命", title: "風暴中心的寂靜", monster: "雜念風暴" },
+];
+
 interface HubViewProps {
   userProgress: UserProgress;
   onSelectVolume: (vol: VolumeData) => void;
@@ -170,6 +178,39 @@ export const HubView: React.FC<HubViewProps> = ({
         </div>
       </div>
 
+      {/* CARD: Five Units Preview */}
+      <div className="relative p-6 rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl space-y-4 backdrop-blur-xl">
+        <div className="flex items-center gap-2">
+          <DoorClosed className="w-5 h-5 text-amber-400" />
+          <h3 className="text-lg font-serif font-bold text-amber-100">五大單元預告</h3>
+        </div>
+        <p className="text-base text-slate-200">
+          五道門，代表五個生命教育單元。內容製作中，敬請期待。
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {[
+            { no: "01", theme: "追求真理", desc: "哲學思考・看穿詭辯的邏輯練習" },
+            { no: "02", theme: "認識自己", desc: "人學探索・找出真正的自己" },
+            { no: "03", theme: "正確抉擇", desc: "價值思辨・學會為選擇負責" },
+            { no: "04", theme: "創造意義", desc: "終極目標・正視生命有限" },
+            { no: "05", theme: "圓滿生命", desc: "靈性修養・在喧鬧中找到平靜" },
+          ].map((u) => (
+            <div
+              key={u.no}
+              className="p-3.5 rounded-2xl border border-amber-500/20 bg-slate-950/70 flex items-center gap-3"
+            >
+              <span className="shrink-0 w-9 h-9 rounded-xl bg-amber-950 border border-amber-500/30 text-amber-300 font-mono font-bold flex items-center justify-center">
+                {u.no}
+              </span>
+              <div>
+                <div className="text-base font-serif font-bold text-amber-100">{u.theme}</div>
+                <div className="text-base text-slate-300">{u.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* CARD 2: Main Chapter Card (Matching Screenshot 3) */}
       <div className="relative p-6 sm:p-7 rounded-3xl border border-indigo-500/30 bg-slate-900/90 shadow-2xl space-y-6 backdrop-blur-xl">
         {/* Top Header Row */}
@@ -291,6 +332,38 @@ export const HubView: React.FC<HubViewProps> = ({
           <Radio className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
           <span>進入辦公桌抉擇 (Image 1 畫面)</span>
         </button>
+      </div>
+
+      {/* Five Doors Roadmap Preview */}
+      <div className="p-5 rounded-3xl border border-indigo-500/30 bg-slate-900/80 shadow-xl space-y-3 text-left">
+        <div className="flex items-center gap-2 text-base font-serif font-bold text-indigo-200">
+          <DoorClosed className="w-4 h-4 text-indigo-300" />
+          <span>五道門總覽 ｜ 5 個生命教育單元</span>
+        </div>
+        <p className="text-base font-serif text-slate-300/80 leading-relaxed">
+          五道門，各自代表一個生命教育單元與一段故事。內容正在製作中，完成後會陸續在「篇章」開放遊玩。
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {FIVE_DOORS_ROADMAP.map((door, idx) => (
+            <div
+              key={door.title}
+              className="p-3 rounded-2xl bg-slate-950/80 border border-indigo-500/20 space-y-0.5"
+            >
+              <div className="flex items-center gap-2 text-base font-mono font-bold text-indigo-300">
+                <span className="w-5 h-5 rounded-md bg-indigo-950 border border-indigo-500/30 flex items-center justify-center text-base">
+                  {idx + 1}
+                </span>
+                <span>{door.unit}</span>
+              </div>
+              <div className="text-base font-bold font-serif text-amber-100 pl-7">
+                《{door.title}》
+              </div>
+              <div className="text-base font-serif text-slate-300/70 pl-7">
+                {door.monster}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

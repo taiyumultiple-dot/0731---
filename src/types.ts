@@ -56,6 +56,7 @@ export interface LevelData {
   endingHook: string;
   clientName: string;
   unlockedClueItem?: string;
+  comingSoon?: boolean;
 }
 
 export interface ChapterData {
